@@ -1,0 +1,40 @@
+/* 🔴 ALTERNATIVE: Oak Cherry Red Theme */
+/* If you prefer red instead of blue, replace the colors in src/index.css with these: */
+
+@layer base {
+  :root {
+    /* Light Mode - Oak Cherry Red */
+    --primary: 0 83% 42%;
+    --primary-foreground: 0 0% 100%;
+    
+    --primary-glow: 0 83% 52%;
+    
+    --accent: 0 83% 42%;
+    --accent-foreground: 0 0% 100%;
+    
+    --ring: 0 83% 42%;
+  }
+
+  .dark {
+    /* Dark Mode - Oak Cherry Red */
+    --primary: 0 83% 52%;
+    --primary-foreground: 0 0% 100%;
+    
+    --primary-glow: 0 83% 62%;
+    
+    --accent: 0 83% 52%;
+    --accent-foreground: 0 0% 100%;
+    
+    --ring: 0 83% 52%;
+  }
+}
+
+/* Also update these files if switching to red: */
+/* 1. src/components/EmbedCodeGenerator.tsx - line with primaryColor default */
+/*    Change: const [primaryColor, setPrimaryColor] = useState('#b91c1c'); */
+
+/* 2. public/widget.js - line with primaryColor default */
+/*    Change: const primaryColor = config.primaryColor || '#b91c1c'; */
+
+/* 3. public/test-widget.html - line with primaryColor in config */
+/*    Change: primaryColor: '#b91c1c', */

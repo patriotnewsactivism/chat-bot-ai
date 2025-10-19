@@ -49,19 +49,18 @@ const Index = () => {
           </h1>
           
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Create intelligent AI chatbots without code. Empower your business with 
-            conversational AI that engages customers 24/7.
+            Create powerful AI chatbots without coding. Perfect for businesses, creators, and resellers.
           </p>
           
           <div className="flex items-center justify-center gap-4 pt-4">
             <Link to="/auth">
               <Button size="lg" className="gradient-primary gradient-glow text-lg h-12 px-8">
-                Create Your First Bot
+                Start Free Trial
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </Link>
             <Button size="lg" variant="outline" className="text-lg h-12 px-8">
-              Watch Demo
+              View Demo
             </Button>
           </div>
           
@@ -85,8 +84,8 @@ const Index = () => {
       {/* Features Grid */}
       <section className="container mx-auto px-4 py-20">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">Everything you need to engage customers</h2>
-          <p className="text-xl text-muted-foreground">Powerful AI chatbots that work everywhere</p>
+          <h2 className="text-4xl font-bold mb-4">Powerful Features Made Simple</h2>
+          <p className="text-xl text-muted-foreground">Everything you need to engage customers</p>
         </div>
         
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -94,9 +93,9 @@ const Index = () => {
             <div className="w-12 h-12 rounded-lg gradient-primary flex items-center justify-center mb-4">
               <Brain className="w-6 h-6 text-primary-foreground" />
             </div>
-            <h3 className="text-xl font-semibold mb-2">AI-Powered Responses</h3>
+            <h3 className="text-xl font-semibold mb-2">AI-Powered Chat</h3>
             <p className="text-muted-foreground">
-              Train your bot with your knowledge base. It learns and provides accurate answers to customer questions.
+              Leverage cutting-edge GPT-4o-mini to create intelligent chatbots that understand and respond to customer inquiries with remarkable accuracy.
             </p>
           </Card>
           
@@ -104,9 +103,9 @@ const Index = () => {
             <div className="w-12 h-12 rounded-lg gradient-primary flex items-center justify-center mb-4">
               <Globe className="w-6 h-6 text-primary-foreground" />
             </div>
-            <h3 className="text-xl font-semibold mb-2">Deploy Anywhere</h3>
+            <h3 className="text-xl font-semibold mb-2">No-Code Builder</h3>
             <p className="text-muted-foreground">
-              Embed on your website, integrate with social media, or connect to messaging apps instantly.
+              Create sophisticated chatbots with our intuitive drag-and-drop interface. No technical skills required - just your vision and our platform.
             </p>
           </Card>
           
@@ -114,10 +113,59 @@ const Index = () => {
             <div className="w-12 h-12 rounded-lg gradient-primary flex items-center justify-center mb-4">
               <BarChart3 className="w-6 h-6 text-primary-foreground" />
             </div>
-            <h3 className="text-xl font-semibold mb-2">Track Performance</h3>
+            <h3 className="text-xl font-semibold mb-2">Easy Embedding</h3>
             <p className="text-muted-foreground">
-              Monitor conversations, track engagement metrics, and improve your bot's responses over time.
+              Deploy your chatbot anywhere with our simple embed system. Choose from script, iframe, or React component options for seamless integration.
             </p>
+          </Card>
+        </div>
+      </section>
+
+      {/* Reseller Program */}
+      <section className="container mx-auto px-4 py-20">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-4">50% Recurring Reseller Commissions</h2>
+          <p className="text-xl text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
+            Join our reseller program and earn vested residual income. As customers you refer continue their subscriptions, you continue earning commissions.
+          </p>
+          
+          <Card className="p-8">
+            <div className="flex flex-col md:flex-row items-center">
+              <div className="md:w-2/3 mb-6 md:mb-0 md:pr-8">
+                <h3 className="text-2xl font-bold mb-4">How It Works</h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start">
+                    <div className="bg-teal-500 rounded-full p-1 mt-1 mr-3">
+                      <CheckCircle2 className="w-4 h-4 text-white" />
+                    </div>
+                    <span className="text-muted-foreground">Sign up for our reseller program</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="bg-teal-500 rounded-full p-1 mt-1 mr-3">
+                      <CheckCircle2 className="w-4 h-4 text-white" />
+                    </div>
+                    <span className="text-muted-foreground">Promote BuildMyBot with your unique referral link</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="bg-teal-500 rounded-full p-1 mt-1 mr-3">
+                      <CheckCircle2 className="w-4 h-4 text-white" />
+                    </div>
+                    <span className="text-muted-foreground">Earn 50% commission on all referred subscriptions</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="bg-teal-500 rounded-full p-1 mt-1 mr-3">
+                      <CheckCircle2 className="w-4 h-4 text-white" />
+                    </div>
+                    <span className="text-muted-foreground">Recruit other resellers and earn 50% on their sales too</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="md:w-1/3 bg-gradient-to-br from-primary to-secondary rounded-lg p-6 text-white text-center">
+                <p className="text-5xl font-bold mb-2">50%</p>
+                <p className="text-xl mb-4">Recurring Commission</p>
+                <Button className="w-full bg-white text-primary hover:bg-gray-100">Join Program</Button>
+              </div>
+            </div>
           </Card>
         </div>
       </section>
@@ -160,10 +208,10 @@ const Index = () => {
       <section className="container mx-auto px-4 py-20">
         <Card className="gradient-primary p-16 text-center">
           <h2 className="text-4xl font-bold text-primary-foreground mb-4">
-            Ready to engage your customers?
+            Ready to Build Your Bot?
           </h2>
           <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
-            Create your first AI chatbot in minutes. No coding required.
+            Join thousands of businesses and creators who are revolutionizing customer engagement with BuildMyBot.
           </p>
           <Link to="/auth">
             <Button size="lg" variant="secondary" className="text-lg h-12 px-8">

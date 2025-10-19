@@ -1,8 +1,8 @@
-# 🤖 ChatMaker - AI Chatbot Platform
+# 🤖 BuildMyBot - AI Chatbot Platform
 
-> **A production-ready SaaS platform for creating and deploying AI chatbots**
+> **Build Your Bot, Your Way**
 
-Built with React, TypeScript, Supabase, OpenAI, and Stripe. Deploy AI chatbots to any website in minutes.
+A production-ready SaaS platform for creating and deploying AI chatbots without code. Built with React, TypeScript, Supabase, OpenAI, and Stripe. Deploy intelligent chatbots to any website in minutes.
 
 ---
 
@@ -113,9 +113,9 @@ http://localhost:5173
 ### Embed on Website
 ```html
 <script>
-  window.ChatMakerConfig = {
+  window.BuildMyBotConfig = {
     botId: 'your-bot-id',
-    primaryColor: '#6366f1',
+    primaryColor: '#1e3a8a',
     position: 'bottom-right'
   };
 </script>
@@ -291,6 +291,6 @@ Built with:
 
 ---
 
-**Built with ❤️ by NinjaTech AI**
+**Built with ❤️ by BuildMyBot Team**
 
-*Ready to launch your AI chatbot platform? Let's go!* 🚀
+*Empowering businesses with intelligent AI chatbots - no code required!* 🚀

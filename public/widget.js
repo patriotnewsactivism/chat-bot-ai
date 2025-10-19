@@ -2,11 +2,11 @@
   'use strict';
   
   // Get configuration
-  const config = window.ChatMakerConfig || {};
+  const config = window.BuildMyBotConfig || {};
   const botId = config.botId;
   
   if (!botId) {
-    console.error('ChatMaker: botId is required in ChatMakerConfig');
+    console.error('BuildMyBot: botId is required in BuildMyBotConfig');
     return;
   }
   
@@ -25,7 +25,7 @@
   
   // Create widget container
   const container = document.createElement('div');
-  container.id = 'chatmaker-widget';
+  container.id = 'buildmybot-widget';
   container.style.cssText = `
     position: fixed;
     ${positions[position] || positions['bottom-right']}
@@ -126,7 +126,7 @@
   }
   
   // Expose API
-  window.ChatMaker = {
+  window.BuildMyBot = {
     open: function() {
       if (!isOpen) button.click();
     },

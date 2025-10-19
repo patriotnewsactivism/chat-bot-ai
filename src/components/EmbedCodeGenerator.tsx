@@ -21,9 +21,9 @@ export function EmbedCodeGenerator({ botId }: EmbedCodeGeneratorProps) {
   const widgetUrl = `${baseUrl}/widget/${botId}`;
 
   const generateEmbedCode = () => {
-    return `<!-- ChatMaker Widget -->
+    return `<!-- BuildMyBot Widget -->
 <script>
-  window.ChatMakerConfig = {
+  window.BuildMyBotConfig = {
     botId: '${botId}',
     primaryColor: '${primaryColor}',
     position: '${position}'
@@ -33,7 +33,7 @@ export function EmbedCodeGenerator({ botId }: EmbedCodeGeneratorProps) {
   };
 
   const generateIframeCode = () => {
-    return `<!-- ChatMaker iFrame -->
+    return `<!-- BuildMyBot iFrame -->
 <iframe 
   src="${widgetUrl}"
   width="400"

@@ -23,7 +23,7 @@ This document summarizes the changes made to update the BuildMyBot landing page 
 - **Hero Section**: Engaging headline with "Build Your Bot, Your Way" messaging
 - **Features Grid**: Three key features with icons (AI-Powered Responses, Deploy Anywhere, Track Performance)
 - **Use Cases**: Four business use cases in a responsive grid layout
-- **Reseller Program**: Dedicated section highlighting the 50% recurring commission model
+- **Reseller Program**: Dedicated section highlighting the two-tier commission model (50% on direct sales, 20% on recruited reseller sales)
 - **Pricing**: Three-tier pricing structure with clear feature comparisons
 - **Call to Action**: Prominent section encouraging users to start their free trial
 - **Footer**: Minimal footer with copyright information

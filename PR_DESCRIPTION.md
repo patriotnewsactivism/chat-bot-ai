@@ -6,7 +6,7 @@ This PR updates the landing page HTML to match the current design of buildmybot.
 - Updated color scheme using the official BuildMyBot HSL values
 - Modern gradient-based design elements
 - Responsive layout that works on all device sizes
-- All key sections from the live site (Features, Use Cases, Reseller Program, Pricing)
+- All key sections from the live site (Features, Use Cases, Reseller Program with accurate two-tier commission structure, Pricing)
 - Improved visual hierarchy and typography
 
 ## Changes

@@ -126,7 +126,7 @@ const Index = () => {
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-4">50% Recurring Reseller Commissions</h2>
           <p className="text-xl text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
-            Join our reseller program and earn vested residual income. As customers you refer continue their subscriptions, you continue earning commissions.
+            Join our reseller program and earn vested residual income. Earn 50% on your direct sales and 20% on sales from resellers you recruit. As customers continue their subscriptions, you continue earning commissions.
           </p>
           
           <Card className="p-8">
@@ -156,7 +156,7 @@ const Index = () => {
                     <div className="bg-teal-500 rounded-full p-1 mt-1 mr-3">
                       <CheckCircle2 className="w-4 h-4 text-white" />
                     </div>
-                    <span className="text-muted-foreground">Recruit other resellers and earn 50% on their sales too</span>
+                    <span className="text-muted-foreground">Recruit other resellers and earn 20% on their sales</span>
                   </li>
                 </ul>
               </div>

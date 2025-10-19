@@ -1,9 +1,49 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { CheckCircle2, MessageSquare } from "lucide-react";
-import { Link } from "react-router-dom";
+import { CheckCircle2, MessageSquare, Loader2 } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import { pricingPlans } from "@/lib/stripe";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/components/ui/use-toast";
 
 const Pricing = () => {
+  const [loading, setLoading] = useState<string | null>(null);
+  const navigate = useNavigate();
+  const { toast } = useToast();
+
+  const handleSubscribe = async (planId: string) => {
+    // Check if user is logged in
+    const { data: { session } } = await supabase.auth.getSession();
+    
+    if (!session) {
+      toast({
+        title: "Sign in required",
+        description: "Please sign in to subscribe to a plan",
+      });
+      navigate('/auth');
+      return;
+    }
+
+    if (planId === 'free') {
+      navigate('/dashboard');
+      return;
+    }
+
+    setLoading(planId);
+    
+    // For now, just show a message since Stripe isn't fully configured
+    toast({
+      title: "Coming Soon!",
+      description: "Payment processing will be available soon. For now, enjoy the free plan!",
+    });
+    
+    setTimeout(() => {
+      setLoading(null);
+      navigate('/dashboard');
+    }, 2000);
+  };
+
   const plans = [
     {
       name: "Starter",
@@ -110,8 +150,17 @@ const Pricing = () => {
               <Button 
                 className={`w-full mb-6 ${plan.popular ? 'gradient-primary' : ''}`}
                 variant={plan.popular ? "default" : "outline"}
+                onClick={() => handleSubscribe(plan.name.toLowerCase())}
+                disabled={loading !== null}
               >
-                {plan.price === "Custom" ? "Contact Sales" : "Start Free Trial"}
+                {loading === plan.name.toLowerCase() ? (
+                  <>
+                    <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                    Processing...
+                  </>
+                ) : (
+                  plan.price === "Custom" ? "Contact Sales" : "Start Free Trial"
+                )}
               </Button>
               
               <div className="space-y-3">

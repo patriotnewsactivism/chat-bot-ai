@@ -4,10 +4,13 @@ import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { MessageSquare, Save, ArrowLeft } from "lucide-react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { MessageSquare, Save, ArrowLeft, TestTube, Code } from "lucide-react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/components/ui/use-toast";
+import { ChatInterface } from "@/components/ChatInterface";
+import { EmbedCodeGenerator } from "@/components/EmbedCodeGenerator";
 
 const BotConfig = () => {
   const { id } = useParams();
@@ -123,87 +126,125 @@ const BotConfig = () => {
         </div>
       </nav>
 
-      <div className="container mx-auto px-4 py-8 max-w-4xl">
+      <div className="container mx-auto px-4 py-8 max-w-6xl">
         <div className="mb-8">
           <h1 className="text-4xl font-bold mb-2">Configure Chatbot</h1>
-          <p className="text-muted-foreground">Customize your AI assistant's behavior and knowledge</p>
+          <p className="text-muted-foreground">Customize your AI assistant's behavior and test it live</p>
         </div>
 
-        <div className="space-y-6">
-          <Card className="p-6">
-            <h2 className="text-2xl font-semibold mb-4">Basic Information</h2>
-            <div className="space-y-4">
-              <div>
-                <Label htmlFor="name">Chatbot Name</Label>
-                <Input
-                  id="name"
-                  value={bot.name}
-                  onChange={(e) => setBot({ ...bot, name: e.target.value })}
-                  placeholder="My Helpful Assistant"
-                />
-              </div>
-              
-              <div>
-                <Label htmlFor="description">Description</Label>
-                <Input
-                  id="description"
-                  value={bot.description}
-                  onChange={(e) => setBot({ ...bot, description: e.target.value })}
-                  placeholder="A brief description of what your chatbot does"
-                />
-              </div>
-            </div>
-          </Card>
-
-          <Card className="p-6">
-            <h2 className="text-2xl font-semibold mb-4">AI Configuration</h2>
-            <div className="space-y-4">
-              <div>
-                <Label htmlFor="system_prompt">System Prompt</Label>
-                <Textarea
-                  id="system_prompt"
-                  value={bot.system_prompt}
-                  onChange={(e) => setBot({ ...bot, system_prompt: e.target.value })}
-                  placeholder="You are a helpful AI assistant that..."
-                  rows={6}
-                  className="resize-none"
-                />
-                <p className="text-sm text-muted-foreground mt-2">
-                  Define how your chatbot should behave and respond to users
-                </p>
-              </div>
-              
-              <div>
-                <Label htmlFor="knowledge_base">Knowledge Base</Label>
-                <Textarea
-                  id="knowledge_base"
-                  value={bot.knowledge_base}
-                  onChange={(e) => setBot({ ...bot, knowledge_base: e.target.value })}
-                  placeholder="Add your company information, FAQs, product details..."
-                  rows={10}
-                  className="resize-none"
-                />
-                <p className="text-sm text-muted-foreground mt-2">
-                  Add information your chatbot should know about. This helps it answer questions accurately.
-                </p>
-              </div>
-            </div>
-          </Card>
-
-          <div className="flex items-center justify-between">
-            <Link to="/dashboard">
-              <Button variant="outline">Cancel</Button>
-            </Link>
-            <Button 
-              onClick={handleSave} 
-              disabled={saving}
-              className="gradient-primary"
-            >
+        <Tabs defaultValue="configure" className="space-y-6">
+          <TabsList className="grid w-full grid-cols-3 max-w-2xl">
+            <TabsTrigger value="configure">
               <Save className="w-4 h-4 mr-2" />
-              {saving ? "Saving..." : "Save Changes"}
-            </Button>
-          </div>
-        </div>
+              Configure
+            </TabsTrigger>
+            <TabsTrigger value="test">
+              <TestTube className="w-4 h-4 mr-2" />
+              Test Bot
+            </TabsTrigger>
+            <TabsTrigger value="embed">
+              <Code className="w-4 h-4 mr-2" />
+              Embed
+            </TabsTrigger>
+          </TabsList>
+
+          <TabsContent value="configure" className="space-y-6">
+            <Card className="p-6">
+              <h2 className="text-2xl font-semibold mb-4">Basic Information</h2>
+              <div className="space-y-4">
+                <div>
+                  <Label htmlFor="name">Chatbot Name</Label>
+                  <Input
+                    id="name"
+                    value={bot.name}
+                    onChange={(e) => setBot({ ...bot, name: e.target.value })}
+                    placeholder="My Helpful Assistant"
+                  />
+                </div>
+                
+                <div>
+                  <Label htmlFor="description">Description</Label>
+                  <Input
+                    id="description"
+                    value={bot.description}
+                    onChange={(e) => setBot({ ...bot, description: e.target.value })}
+                    placeholder="A brief description of what your chatbot does"
+                  />
+                </div>
+              </div>
+            </Card>
+
+            <Card className="p-6">
+              <h2 className="text-2xl font-semibold mb-4">AI Configuration</h2>
+              <div className="space-y-4">
+                <div>
+                  <Label htmlFor="system_prompt">System Prompt</Label>
+                  <Textarea
+                    id="system_prompt"
+                    value={bot.system_prompt}
+                    onChange={(e) => setBot({ ...bot, system_prompt: e.target.value })}
+                    placeholder="You are a helpful AI assistant that..."
+                    rows={6}
+                    className="resize-none"
+                  />
+                  <p className="text-sm text-muted-foreground mt-2">
+                    Define how your chatbot should behave and respond to users
+                  </p>
+                </div>
+                
+                <div>
+                  <Label htmlFor="knowledge_base">Knowledge Base</Label>
+                  <Textarea
+                    id="knowledge_base"
+                    value={bot.knowledge_base}
+                    onChange={(e) => setBot({ ...bot, knowledge_base: e.target.value })}
+                    placeholder="Add your company information, FAQs, product details..."
+                    rows={10}
+                    className="resize-none"
+                  />
+                  <p className="text-sm text-muted-foreground mt-2">
+                    Add information your chatbot should know about. This helps it answer questions accurately.
+                  </p>
+                </div>
+              </div>
+            </Card>
+
+            <div className="flex items-center justify-between">
+              <Link to="/dashboard">
+                <Button variant="outline">Cancel</Button>
+              </Link>
+              <Button 
+                onClick={handleSave} 
+                disabled={saving}
+                className="gradient-primary"
+              >
+                <Save className="w-4 h-4 mr-2" />
+                {saving ? "Saving..." : "Save Changes"}
+              </Button>
+            </div>
+          </TabsContent>
+
+          <TabsContent value="test" className="space-y-6">
+            <Card className="p-6">
+              <div className="mb-4">
+                <h2 className="text-2xl font-semibold mb-2">Test Your Chatbot</h2>
+                <p className="text-muted-foreground">
+                  Try out your chatbot with the current configuration. Changes are saved automatically.
+                </p>
+              </div>
+              
+              <ChatInterface
+                botId={id!}
+                systemPrompt={bot.system_prompt}
+                knowledgeBase={bot.knowledge_base}
+              />
+            </Card>
+          </TabsContent>
+
+          <TabsContent value="embed" className="space-y-6">
+            <EmbedCodeGenerator botId={id!} />
+          </TabsContent>
+        </Tabs>
       </div>
     </div>
   );

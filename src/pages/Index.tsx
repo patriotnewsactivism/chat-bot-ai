@@ -3,6 +3,7 @@ import { Card } from "@/components/ui/card";
 import { MessageSquare, Zap, Brain, BarChart3, ArrowRight, CheckCircle2, Globe, Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import DemoBot from "@/components/DemoBot";
 
 const Index = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -270,6 +271,9 @@ const Index = () => {
           </div>
         </div>
       </footer>
+      
+      {/* Demo Bot */}
+      <DemoBot />
     </div>
   );
 };

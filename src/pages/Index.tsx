@@ -13,7 +13,7 @@ const Index = () => {
             <div className="w-8 h-8 rounded-lg gradient-primary flex items-center justify-center">
               <MessageSquare className="w-5 h-5 text-primary-foreground" />
             </div>
-            <span className="font-bold text-xl">ChatMaker</span>
+            <span className="font-bold text-xl">BuildMyBot</span>
           </div>
           <div className="flex items-center gap-4">
             <Link to="/dashboard">
@@ -41,16 +41,16 @@ const Index = () => {
           </div>
           
           <h1 className="text-6xl font-bold leading-tight">
-            Create AI Chatbots,
+            Build Your Bot,
             <br />
             <span className="bg-gradient-to-r from-primary via-primary-glow to-primary bg-clip-text text-transparent">
-              Engage Customers
+              Your Way
             </span>
           </h1>
           
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Build intelligent chatbots that engage your customers across websites, 
-            social media, and messaging platforms. No coding required.
+            Create intelligent AI chatbots without code. Empower your business with 
+            conversational AI that engages customers 24/7.
           </p>
           
           <div className="flex items-center justify-center gap-4 pt-4">
@@ -182,10 +182,10 @@ const Index = () => {
               <div className="w-8 h-8 rounded-lg gradient-primary flex items-center justify-center">
                 <MessageSquare className="w-5 h-5 text-primary-foreground" />
               </div>
-              <span className="font-bold text-xl">ChatMaker</span>
+              <span className="font-bold text-xl">BuildMyBot</span>
             </div>
             <p className="text-sm text-muted-foreground">
-              © 2025 ChatMaker. All rights reserved.
+              © 2025 BuildMyBot. All rights reserved.
             </p>
           </div>
         </div>

@@ -3,7 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
+import Index from "./pages/IndexEnhanced";
 import Dashboard from "./pages/Dashboard";
 import BotConfig from "./pages/BotConfig";
 import Templates from "./pages/Templates";
@@ -12,6 +12,10 @@ import Auth from "./pages/Auth";
 import Widget from "./pages/Widget";
 import Analytics from "./pages/Analytics";
 import NotFound from "./pages/NotFound";
+import WhiteLabelDashboard from "./pages/WhiteLabelDashboard";
+import VisualBotBuilder from "./components/VisualBotBuilder";
+import AITrainingCenter from "./components/AITrainingCenter";
+import MultiChannelDeployment from "./components/MultiChannelDeployment";
 
 const queryClient = new QueryClient();
 
@@ -30,6 +34,10 @@ const App = () => (
           <Route path="/auth" element={<Auth />} />
           <Route path="/widget/:botId" element={<Widget />} />
           <Route path="/analytics" element={<Analytics />} />
+          <Route path="/reseller" element={<WhiteLabelDashboard />} />
+          <Route path="/builder" element={<VisualBotBuilder />} />
+          <Route path="/training" element={<AITrainingCenter />} />
+          <Route path="/deployment" element={<MultiChannelDeployment />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
@@ -38,4 +46,4 @@ const App = () => (
   </QueryClientProvider>
 );
 
-export default App;
+export default App;// Force rebuild

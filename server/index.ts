@@ -1,9 +1,9 @@
 import express from 'express';
 import cors from 'cors';
-import { db } from './db';
-import { chatbots, conversations, messages, users } from '@shared/schema';
+import { db } from './db.js';
+import { chatbots, conversations, messages, users } from '../shared/schema.js';
 import { eq, and, desc } from 'drizzle-orm';
-import stripeRouter from './routes/stripe';
+import stripeRouter from './routes/stripe.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;

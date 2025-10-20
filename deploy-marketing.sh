@@ -1,8 +1,8 @@
 #!/bin/bash
-# ChatForge Marketing Materials Deployment Script
+# BuildMyBot Marketing Materials Deployment Script
 # Run this to automatically create all marketing assets and generate a pull request
 
-echo "🚀 ChatForge Marketing Materials Deployment"
+echo "🚀 BuildMyBot Marketing Materials Deployment"
 echo "=========================================="
 
 # Check if we're in the right directory
@@ -30,11 +30,11 @@ echo "📝 Creating marketing materials..."
 
 # 1. Comparison Chart
 cat > marketing/COMPARISON_CHART.md << 'EOF'
-# ChatForge vs Competitors - Complete Comparison
+# BuildMyBot vs Competitors - Complete Comparison
 
 ## Feature Comparison Matrix
 
-| Feature | ChatForge | Tidio | Drift | Intercom |
+| Feature | BuildMyBot | Tidio | Drift | Intercom |
 |---------|-----------|-------|-------|----------|
 | **Setup Time** | ⚡ 2 minutes | ⏰ 2 hours | ⏰ 3 hours | ⏰ 4 hours |
 | **Coding Required** | ❌ None | ⚠️ Some | ⚠️ Some | ⚠️ Much |
@@ -46,7 +46,7 @@ cat > marketing/COMPARISON_CHART.md << 'EOF'
 | **Pro Price** | 💰 $99/mo | 💰 $199/mo | 💰 $400/mo | 💰 $499/mo |
 | **Theme Options** | ✅ 10+ | ⚠️ 3 | ⚠️ 2 | ✅ 5 |
 
-## Why ChatForge Wins
+## Why BuildMyBot Wins
 
 ### 🚀 Speed Advantage
 - **60% faster setup** than competitors
@@ -71,7 +71,7 @@ cat > marketing/COMPARISON_CHART.md << 'EOF'
 ## Value Proposition
 
 ### 💰 ROI Calculation:
-- **ChatForge Cost:** $29-299/month
+- **BuildMyBot Cost:** $29-299/month
 - **Competitor Cost:** $50-500+/month  
 - **Monthly Savings:** $21-471
 - **Annual Savings:** $252-5,652
@@ -84,7 +84,7 @@ cat > marketing/COMPARISON_CHART.md << 'EOF'
 
 ## Customer Testimonials
 
-> "Switched from Drift to ChatForge. Same features, 70% cheaper!"  
+> "Switched from Drift to BuildMyBot. Same features, 70% cheaper!"  
 > *- Mike T., SaaS Founder*
 
 > "Setup took 90 seconds. Drift took me 3 hours to configure."  
@@ -115,14 +115,14 @@ cat > marketing/COMPARISON_CHART.md << 'EOF'
 
 ## Bottom Line
 
-**ChatForge delivers:**
+**BuildMyBot delivers:**
 - ✅ Same functionality as competitors
 - ✅ 50% lower cost
 - ✅ 60% faster setup
 - ✅ Professional design
 - ✅ Built for your needs
 
-**Try ChatForge free today and experience the difference!**
+**Try BuildMyBot free today and experience the difference!**
 EOF
 
 echo "✅ Comparison chart created"
@@ -151,14 +151,14 @@ cat > marketing/EMAIL_TEMPLATES.html << 'EOF'
 <!-- EMAIL 1: Welcome Email -->
 <div class="email-container">
   <div class="header">
-    <h1>⚡🤖 Welcome to ChatForge!</h1>
+    <h1>⚡🤖 Welcome to BuildMyBot!</h1>
     <p>Your 24/7 AI Assistant is Ready</p>
   </div>
   
   <div class="content">
     <p>Hi there,</p>
     
-    <p>Welcome to ChatForge - the easiest way to add AI chatbots to your website.</p>
+    <p>Welcome to BuildMyBot - the easiest way to add AI chatbots to your website.</p>
     
     <div class="highlight-box">
       <p><strong>In just 2 minutes, you can:</strong></p>
@@ -172,7 +172,7 @@ cat > marketing/EMAIL_TEMPLATES.html << 'EOF'
     
     <p>No coding. No complexity. Just results.</p>
     
-    <a href="https://chatforge.com/dashboard" class="button">Get Started Now</a>
+    <a href="https://buildmybot.app/dashboard" class="button">Get Started Now</a>
     
     <p><strong>Quick Start Guide:</strong></p>
     <ol>
@@ -185,12 +185,12 @@ cat > marketing/EMAIL_TEMPLATES.html << 'EOF'
     
     <p>Need help? Reply to this email and I'll personally assist you.</p>
     
-    <p>Best,<br>The ChatForge Team</p>
+    <p>Best,<br>The BuildMyBot Team</p>
   </div>
   
   <div class="footer">
-    <p>ChatForge - AI Chatbots Made Simple</p>
-    <p>You're receiving this because you signed up at ChatForge.com</p>
+    <p>BuildMyBot - AI Chatbots Made Simple</p>
+    <p>You're receiving this because you signed up at BuildMyBot.com</p>
   </div>
 </div>
 
@@ -199,13 +199,13 @@ cat > marketing/EMAIL_TEMPLATES.html << 'EOF'
 <!-- EMAIL 2: Social Proof -->
 <div class="email-container">
   <div class="header">
-    <h1>⚡ Real Results from ChatForge Users</h1>
+    <h1>⚡ Real Results from BuildMyBot Users</h1>
   </div>
   
   <div class="content">
     <p>Hi there,</p>
     
-    <p>Early ChatForge users are already seeing amazing results:</p>
+    <p>Early BuildMyBot users are already seeing amazing results:</p>
     
     <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 30px 0;">
       <div class="stat-card">
@@ -237,15 +237,15 @@ cat > marketing/EMAIL_TEMPLATES.html << 'EOF'
     </div>
     
     <div class="benefit">
-      <p><strong>"Conversion rate up 23% since adding ChatForge"</strong></p>
+      <p><strong>"Conversion rate up 23% since adding BuildMyBot"</strong></p>
       <p style="margin: 0; font-size: 14px; color: #64748b;">- Lisa R., Digital Marketer</p>
     </div>
     
     <p>Ready to see these results for yourself?</p>
     
-    <a href="https://chatforge.com/dashboard" class="button">Create Your Chatbot</a>
+    <a href="https://buildmybot.app/dashboard" class="button">Create Your Chatbot</a>
     
-    <p>Best,<br>The ChatForge Team</p>
+    <p>Best,<br>The BuildMyBot Team</p>
   </div>
 </div>
 
@@ -255,14 +255,14 @@ cat > marketing/EMAIL_TEMPLATES.html << 'EOF'
 <div class="email-container">
   <div class="header">
     <div style="background: #fbbf24; color: #78350f; padding: 10px 20px; border-radius: 20px; display: inline-block; font-weight: bold; margin-bottom: 20px;">🎯 SKOOL MEMBERS ONLY</div>
-    <h1>Exclusive ChatForge Access</h1>
+    <h1>Exclusive BuildMyBot Access</h1>
     <p>Limited to First 50 Members</p>
   </div>
   
   <div class="content">
     <p>Hi Skool Member,</p>
     
-    <p>As a valued member of our Skool community, you get <strong>exclusive early access</strong> to ChatForge!</p>
+    <p>As a valued member of our Skool community, you get <strong>exclusive early access</strong> to BuildMyBot!</p>
     
     <h3>Your Exclusive Benefits:</h3>
     
@@ -298,11 +298,11 @@ cat > marketing/EMAIL_TEMPLATES.html << 'EOF'
       <li>Done! 🎯</li>
     </ol>
     
-    <a href="https://chatforge.com/signup?ref=skool" class="button">Claim My Exclusive Access</a>
+    <a href="https://buildmybot.app/signup?ref=skool" class="button">Claim My Exclusive Access</a>
     
     <p><strong>Questions?</strong> Reply to this email and I'll personally help you get set up.</p>
     
-    <p>To your success,<br>The ChatForge Team</p>
+    <p>To your success,<br>The BuildMyBot Team</p>
     
     <p style="font-size: 12px; color: #64748b; margin-top: 30px;">
       <em>This exclusive offer is only available to Skool community members. Your access code: SKOOL50</em>
@@ -318,7 +318,7 @@ echo "✅ Email templates created"
 
 # 3. Social Media Posts
 cat > marketing/SOCIAL_MEDIA_POSTS.md << 'EOF'
-# ChatForge Social Media Marketing Posts
+# BuildMyBot Social Media Marketing Posts
 
 ## Instagram Posts
 
@@ -326,7 +326,7 @@ cat > marketing/SOCIAL_MEDIA_POSTS.md << 'EOF'
 **Image:** Dashboard screenshot with "⚡ 2 Minutes Setup" badge
 **Caption:**
 ```
-🚀 Introducing ChatForge - AI Chatbots in 2 Minutes!
+🚀 Introducing BuildMyBot - AI Chatbots in 2 Minutes!
 
 No coding. No complexity. Just results.
 
@@ -344,8 +344,8 @@ Try it FREE → Link in bio
 **Image:** Split screen - before/after website
 **Caption:**
 ```
-Before ChatForge: ❌ Lost customers
-After ChatForge: ✅ 24/7 support
+Before BuildMyBot: ❌ Lost customers
+After BuildMyBot: ✅ 24/7 support
 
 Deploy in 2 minutes:
 1. Choose template 🤖
@@ -364,7 +364,7 @@ Get started → Link in bio
 ```
 "150 conversations in first 24 hours!" 📊
 
-ChatForge users are seeing:
+BuildMyBot users are seeing:
 • Higher conversion rates
 • Happier customers
 • More time saved
@@ -378,7 +378,7 @@ Join them → Link in bio
 **Image:** Grid showing 4 templates
 **Caption:**
 ```
-Choose your perfect ChatForge template:
+Choose your perfect BuildMyBot template:
 
 🛒 E-commerce Assistant
 💬 Customer Support  
@@ -394,7 +394,7 @@ Each optimized for your industry!
 **Image:** Phone showing chat widget
 **Caption:**
 ```
-📱 ChatForge works perfectly on mobile!
+📱 BuildMyBot works perfectly on mobile!
 
 • Touch-friendly buttons
 • Responsive design
@@ -412,7 +412,7 @@ Mobile-first, not mobile-afterthought!
 ```
 Tired of losing customers because you can't answer questions 24/7?
 
-I built ChatForge - deploy AI chatbots in 2 minutes!
+I built BuildMyBot - deploy AI chatbots in 2 minutes!
 
 🧵 Here's how it works:
 
@@ -460,14 +460,14 @@ First 50 users get:
 ✅ Priority support
 ✅ Lifetime pricing
 
-Try ChatForge → [link]
+Try BuildMyBot → [link]
 ```
 
 ## LinkedIn Posts
 
 ### Post 1: Professional Launch
 ```
-🚀 Just launched ChatForge - AI chatbots anyone can deploy in 2 minutes
+🚀 Just launched BuildMyBot - AI chatbots anyone can deploy in 2 minutes
 
 After seeing businesses struggle with expensive, complex chatbot solutions, I built something different:
 
@@ -494,7 +494,7 @@ Interested in trying it? Comment "chatbot" and I'll send you access.
 
 ### Post 2: Behind the Scenes
 ```
-Building ChatForge taught me 3 things about AI chatbots:
+Building BuildMyBot taught me 3 things about AI chatbots:
 
 1. Setup shouldn't take weeks
 Most platforms require developers and complex integrations. We built copy/paste deployment.
@@ -525,7 +525,7 @@ Tired of:
 ❌ High support costs?
 ❌ Complex chatbot setups?
 
-I built ChatForge to solve these problems:
+I built BuildMyBot to solve these problems:
 
 ✅ Deploy in 2 minutes (no coding)
 ✅ Answer questions 24/7 automatically
@@ -609,24 +609,24 @@ Your success story starts here: [link]
 ### Hashtag Strategy:
 - Use 5-10 relevant hashtags per post
 - Mix popular and niche hashtags
-- Create branded hashtag: #ChatForge
+- Create branded hashtag: #BuildMyBot
 - Research competitor hashtags
 - Test different combinations
 
-Ready to launch ChatForge on social media! 📱
+Ready to launch BuildMyBot on social media! 📱
 EOF
 
 echo "✅ Social media posts created"
 
 # 4. Skool Community Posts
 cat > marketing/SKOOL_COMMUNITY_POSTS.md << 'EOF'
-# Skool Community Posts for ChatForge Launch
+# Skool Community Posts for BuildMyBot Launch
 
 ## Main Launch Post
 ```
 🚀 EXCLUSIVE LAUNCH FOR SKOOL MEMBERS!
 
-I've built ChatForge - a PROFESSIONAL AI CHATBOT PLATFORM that usually costs $10,000+ to develop.
+I've built BuildMyBot - a PROFESSIONAL AI CHATBOT PLATFORM that usually costs $10,000+ to develop.
 
 BUT - I'm giving the first 50 Skool members:
 ✅ FREE ACCESS to all features
@@ -764,7 +764,7 @@ What will your story be? 🎯
 ```
 ⚡ CHATFORGE vs COMPETITORS
 
-Why choose ChatForge?
+Why choose BuildMyBot?
 
 vs. Tidio:
 ✅ 2-min setup vs 2 hours
@@ -811,7 +811,7 @@ Try it on your phone: [link]
 ```
 🤝 CHATFORGE SUPPORT COMMUNITY
 
-When you join ChatForge, you get:
+When you join BuildMyBot, you get:
 
 ✅ Priority support (1-hour response)
 ✅ Personal setup assistance
@@ -830,7 +830,7 @@ Join us: [link]
 ```
 🔧 BUILDING CHATFORGE: LESSONS LEARNED
 
-3 things I learned building ChatForge:
+3 things I learned building BuildMyBot:
 
 1. Setup shouldn't take weeks
 Most platforms require developers and complex integrations. We built copy/paste deployment.
@@ -889,11 +889,11 @@ Code: SKOOL50
 ### Hashtag Strategy:
 - Use 5-10 relevant hashtags per post
 - Mix popular and niche hashtags
-- Create branded hashtag: #ChatForge
+- Create branded hashtag: #BuildMyBot
 - Research competitor hashtags
 - Test different combinations
 
-Ready to launch ChatForge on social media! 📱
+Ready to launch BuildMyBot on social media! 📱
 EOF
 
 echo "✅ Skool community posts created"
@@ -915,4 +915,4 @@ echo "3. Set up email automation with templates"
 echo "4. Schedule social media posts"
 echo "5. Create pull request to push all changes"
 echo ""
-echo "Ready to deploy? Run: git add . && git commit -m 'feat: Add complete marketing materials for ChatForge launch' && git push origin feature/marketing-materials"
+echo "Ready to deploy? Run: git add . && git commit -m 'feat: Add complete marketing materials for BuildMyBot launch' && git push origin feature/marketing-materials"

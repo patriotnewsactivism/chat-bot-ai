@@ -1,10 +1,10 @@
-# Skool Community Posts for ChatForge Launch
+# Skool Community Posts for BuildMyBot Launch
 
 ## Main Launch Post
 ```
 🚀 EXCLUSIVE LAUNCH FOR SKOOL MEMBERS!
 
-I've built ChatForge - a PROFESSIONAL AI CHATBOT PLATFORM that usually costs $10,000+ to develop.
+I've built BuildMyBot - a PROFESSIONAL AI CHATBOT PLATFORM that usually costs $10,000+ to develop.
 
 BUT - I'm giving the first 50 Skool members:
 ✅ FREE ACCESS to all features
@@ -142,7 +142,7 @@ What will your story be? 🎯
 ```
 ⚡ CHATFORGE vs COMPETITORS
 
-Why choose ChatForge?
+Why choose BuildMyBot?
 
 vs. Tidio:
 ✅ 2-min setup vs 2 hours
@@ -189,7 +189,7 @@ Try it on your phone: [link]
 ```
 🤝 CHATFORGE SUPPORT COMMUNITY
 
-When you join ChatForge, you get:
+When you join BuildMyBot, you get:
 
 ✅ Priority support (1-hour response)
 ✅ Personal setup assistance
@@ -208,7 +208,7 @@ Join us: [link]
 ```
 🔧 BUILDING CHATFORGE: LESSONS LEARNED
 
-3 things I learned building ChatForge:
+3 things I learned building BuildMyBot:
 
 1. Setup shouldn't take weeks
 Most platforms require developers and complex integrations. We built copy/paste deployment.
@@ -267,8 +267,8 @@ Code: SKOOL50
 ### Hashtag Strategy:
 - Use 5-10 relevant hashtags per post
 - Mix popular and niche hashtags
-- Create branded hashtag: #ChatForge
+- Create branded hashtag: #BuildMyBot
 - Research competitor hashtags
 - Test different combinations
 
-Ready to launch ChatForge on social media! 📱
+Ready to launch BuildMyBot on social media! 📱

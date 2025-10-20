@@ -1,5 +1,5 @@
-# ChatForge Demo Video Script
-**"ChatForge - Deploy AI Chatbots in 2 Minutes"**
+# BuildMyBot Demo Video Script
+**"BuildMyBot - Deploy AI Chatbots in 2 Minutes"**
 **Duration:** 2 minutes 30 seconds
 
 ## Scene-by-Scene Breakdown
@@ -15,8 +15,8 @@
 **Action:** Customer closes browser tab, money flying away animation
 
 ### Scene 3: Solution (0:30-0:45)
-**Visual:** ChatForge dashboard with clean interface
-**Voiceover:** "With ChatForge, deploy a professional AI chatbot in just 2 minutes - for free!"
+**Visual:** BuildMyBot dashboard with clean interface
+**Voiceover:** "With BuildMyBot, deploy a professional AI chatbot in just 2 minutes - for free!"
 **Action:** Dashboard zooms in, "⚡ 2 Minutes Setup" badge pulses
 
 ### Scene 4: Demo - Templates (0:45-1:00)
@@ -54,8 +54,8 @@
 - 23% conversion increase
 
 ### Scene 9: Call to Action (2:15-2:30)
-**Visual:** Website with ChatForge widget active
-**Voiceover:** "Ready to boost your customer service? Sign up free at ChatForge.com"
+**Visual:** Website with BuildMyBot widget active
+**Voiceover:** "Ready to boost your customer service? Sign up free at BuildMyBot.com"
 **Action:** "Sign Up Free" button pulses, URL appears on screen
 
 ## Visual Assets Needed
@@ -111,7 +111,7 @@
 ```
 Ready to deploy your AI chatbot?
 
-✅ Sign up free at ChatForge.com
+✅ Sign up free at BuildMyBot.com
 ✅ Choose your template
 ✅ Copy & paste to go live
 
@@ -119,7 +119,7 @@ Ready to deploy your AI chatbot?
 ```
 
 **Button Text:** "Get Started Free"
-**URL Display:** "ChatForge.com"
+**URL Display:** "BuildMyBot.com"
 
 ## Distribution Strategy
 
@@ -131,9 +131,9 @@ Ready to deploy your AI chatbot?
 - Instagram (stories)
 
 ### Video Titles:
-- "Deploy AI Chatbots in 2 Minutes - ChatForge Demo"
-- "ChatForge Review: Easiest Chatbot Setup Ever"
-- "ChatForge vs Competitors: Why It's Better"
+- "Deploy AI Chatbots in 2 Minutes - BuildMyBot Demo"
+- "BuildMyBot Review: Easiest Chatbot Setup Ever"
+- "BuildMyBot vs Competitors: Why It's Better"
 
 ### Video Descriptions:
 Include keywords, benefits, and call-to-action with link to signup page.

@@ -20,7 +20,6 @@ import {
   Linkedin,  
   MessageCircle, 
   Slack, 
-  Discord, 
   Code, 
   Settings, 
   CheckCircle, 

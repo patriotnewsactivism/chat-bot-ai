@@ -120,7 +120,7 @@ Products:
 - Enterprise: Custom pricing
 
 Support Hours: Monday-Friday 9AM-6PM EST
-Support Email: support@techcorp.com
+Support Email: support@buildmybot.app
 Free Trial: 14 days, no credit card required
 ```
 

@@ -30,7 +30,7 @@ const botTemplates = [
     description: "Handle common support tickets and FAQs automatically",
     icon: Headphones,
     systemPrompt: "You are a customer service representative. Provide helpful, friendly support for common customer questions. If you can't solve an issue, guide the customer to contact human support.",
-    knowledgeBase: "Support hours: Monday-Friday 9AM-6PM EST\nSupport email: support@company.com\nSupport phone: 1-800-SUPPORT"
+    knowledgeBase: "Support hours: Monday-Friday 9AM-6PM EST\nSupport email: support@buildmybot.app\nWebsite: https://buildmybot.app"
   },
   {
     id: "sales",
@@ -38,7 +38,7 @@ const botTemplates = [
     description: "Qualify leads, schedule demos, and capture contact information",
     icon: Users,
     systemPrompt: "You are a sales assistant. Help qualify leads by asking relevant questions about their needs, company size, and use case. Be professional and enthusiastic. Your goal is to schedule a product demo with qualified prospects.",
-    knowledgeBase: "Demo scheduling link: calendly.com/demo\nPricing tiers: Starter ($29/mo), Professional ($99/mo), Enterprise (custom)\nIdeal customer: Teams of 10+ looking to improve customer engagement"
+    knowledgeBase: "Demo scheduling link: https://calendly.com/buildmybot/demo\nPricing tiers: Starter ($29/mo), Professional ($99/mo), Enterprise (custom)\nIdeal customer: Teams of 10+ looking to improve customer engagement\nWebsite: https://buildmybot.app"
   },
   {
     id: "knowledge",

@@ -1,0 +1,3 @@
+git add .github/workflows/fix-and-build.yml
+git commit -m "Add GitHub Action for auto fix and build"
+git push

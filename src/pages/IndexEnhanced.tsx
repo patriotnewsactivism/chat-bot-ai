@@ -7,38 +7,39 @@ import DemoBot from "@/components/DemoBot";
 
 const IndexEnhanced = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  
+
   return (
     <div className="min-h-screen bg-background">
       {/* Navigation */}
       <nav className="border-b border-border/40 backdrop-blur-sm bg-background/80 sticky top-0 z-50">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <img src="/buildmybot-logo.png" alt="BuildMyBot Logo" className="w-10 h-10 rounded-lg" />
+            {/* Updated Logo Path */}
+            <img src="/IMG_1486.jpeg" alt="BuildMyBot Logo" className="w-10 h-10 rounded-lg object-contain" />
             <span className="font-bold text-xl">BuildMyBot</span>
           </div>
-          
+
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6">
-            <Link to="#features" className="text-foreground/80 hover:text-primary transition-colors">
+            <a href="#features" className="text-foreground/80 hover:text-primary transition-colors">
               Features
-            </Link>
-            <Link to="#templates" className="text-foreground/80 hover:text-primary transition-colors">
+            </a>
+            <a href="#templates" className="text-foreground/80 hover:text-primary transition-colors">
               Templates
-            </Link>
-            <Link to="#pricing" className="text-foreground/80 hover:text-primary transition-colors">
+            </a>
+            <a href="#pricing" className="text-foreground/80 hover:text-primary transition-colors">
               Pricing
-            </Link>
-            <Link to="#reseller" className="text-foreground/80 hover:text-primary transition-colors">
+            </a>
+            <a href="#reseller" className="text-foreground/80 hover:text-primary transition-colors">
               Reseller
-            </Link>
+            </a>
             <Link to="/auth">
               <Button className="bg-gradient-to-r from-primary to-primary-glow hover:from-primary/90 hover:to-primary-glow/90 text-primary-foreground">
                 Get Started
               </Button>
             </Link>
           </div>
-          
+
           {/* Mobile Navigation */}
           <div className="md:hidden flex items-center">
             <Button variant="ghost" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="p-2 rounded-lg hover:bg-primary/10">
@@ -46,23 +47,23 @@ const IndexEnhanced = () => {
             </Button>
           </div>
         </div>
-        
+
         {/* Mobile Menu */}
         {mobileMenuOpen && (
           <div className="md:hidden border-t border-border/20 bg-background/95 backdrop-blur-sm">
             <div className="container mx-auto px-4 py-4 flex flex-col gap-2">
-              <Link to="#features" className="py-2" onClick={() => setMobileMenuOpen(false)}>
+              <a href="#features" className="py-2" onClick={() => setMobileMenuOpen(false)}>
                 <Button variant="ghost" className="w-full justify-start text-base py-3">Features</Button>
-              </Link>
-              <Link to="#templates" className="py-2" onClick={() => setMobileMenuOpen(false)}>
+              </a>
+              <a href="#templates" className="py-2" onClick={() => setMobileMenuOpen(false)}>
                 <Button variant="ghost" className="w-full justify-start text-base py-3">Templates</Button>
-              </Link>
-              <Link to="#pricing" className="py-2" onClick={() => setMobileMenuOpen(false)}>
+              </a>
+              <a href="#pricing" className="py-2" onClick={() => setMobileMenuOpen(false)}>
                 <Button variant="ghost" className="w-full justify-start text-base py-3">Pricing</Button>
-              </Link>
-              <Link to="#reseller" className="py-2" onClick={() => setMobileMenuOpen(false)}>
+              </a>
+              <a href="#reseller" className="py-2" onClick={() => setMobileMenuOpen(false)}>
                 <Button variant="ghost" className="w-full justify-start text-base py-3">Reseller</Button>
-              </Link>
+              </a>
               <Link to="/auth" className="py-2" onClick={() => setMobileMenuOpen(false)}>
                 <Button className="bg-gradient-to-r from-primary to-primary-glow w-full text-base py-3">Get Started</Button>
               </Link>
@@ -72,13 +73,14 @@ const IndexEnhanced = () => {
       </nav>
 
       {/* Hero Section */}
+      {/* Suggestion: Add a background image or subtle pattern here */}
       <section className="container mx-auto px-4 pt-20 pb-32">
         <div className="max-w-4xl mx-auto text-center space-y-8 animate-in">
           <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm">
             <Zap className="w-5 h-5 text-primary" />
             <span className="text-base font-medium">AI-Powered Customer Engagement</span>
           </div>
-          
+
           <h1 className="text-5xl md:text-7xl font-bold leading-tight">
             Build Your Bot,
             <br />
@@ -86,11 +88,11 @@ const IndexEnhanced = () => {
               Your Way
             </span>
           </h1>
-          
+
           <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto px-4">
             Create powerful AI chatbots without coding. Perfect for businesses, creators, and resellers.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-8">
             <Link to="/auth">
               <Button size="lg" className="bg-gradient-to-r from-primary to-primary-glow hover:from-primary/90 hover:to-primary-glow/90 text-primary-foreground text-xl h-14 px-10 w-full sm:w-auto shadow-lg hover:shadow-xl transition-all duration-300">
@@ -98,11 +100,12 @@ const IndexEnhanced = () => {
                 <ArrowRight className="w-6 h-6 ml-3" />
               </Button>
             </Link>
+            {/* Suggestion: Make this link to a demo video or interactive demo section */}
             <Button size="lg" variant="outline" className="text-xl h-14 px-10 w-full sm:w-auto border-2">
               View Demo
             </Button>
           </div>
-          
+
           <div className="flex flex-wrap items-center justify-center gap-6 pt-8 text-base text-muted-foreground">
             <div className="flex items-center gap-3">
               <CheckCircle2 className="w-5 h-5 text-primary" />
@@ -120,14 +123,17 @@ const IndexEnhanced = () => {
         </div>
       </section>
 
+      {/* Suggestion: Add a section here with a large screenshot/GIF of the product */}
+
       {/* Features Grid */}
       <section id="features" className="container mx-auto px-4 py-16">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Powerful Features Made Simple</h2>
           <p className="text-lg md:text-xl text-muted-foreground px-4">Everything you need to engage customers</p>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {/* Suggestion: Replace Lucide icons with custom illustrations if desired */}
           <Card className="p-8 border-border/50 hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 bg-gradient-to-br from-background to-primary/5 rounded-xl">
             <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center mb-6">
               <Brain className="w-8 h-8 text-primary-foreground" />
@@ -136,12 +142,12 @@ const IndexEnhanced = () => {
             <p className="text-muted-foreground mb-4">
               Leverage cutting-edge GPT-4o-mini to create intelligent chatbots that understand and respond to customer inquiries with remarkable accuracy.
             </p>
-            <div className="flex items-center text-primary font-medium">
+            <a href="#" className="flex items-center text-primary font-medium hover:underline">
               <span>Learn more</span>
               <ArrowRight className="w-4 h-4 ml-2" />
-            </div>
+            </a>
           </Card>
-          
+
           <Card className="p-8 border-border/50 hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 bg-gradient-to-br from-background to-primary/5 rounded-xl">
             <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center mb-6">
               <Globe className="w-8 h-8 text-primary-foreground" />
@@ -150,12 +156,12 @@ const IndexEnhanced = () => {
             <p className="text-muted-foreground mb-4">
               Create sophisticated chatbots with our intuitive drag-and-drop interface. No technical skills required - just your vision and our platform.
             </p>
-            <div className="flex items-center text-primary font-medium">
+            <a href="#" className="flex items-center text-primary font-medium hover:underline">
               <span>Learn more</span>
               <ArrowRight className="w-4 h-4 ml-2" />
-            </div>
+            </a>
           </Card>
-          
+
           <Card className="p-8 border-border/50 hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 bg-gradient-to-br from-background to-primary/5 rounded-xl">
             <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center mb-6">
               <BarChart3 className="w-8 h-8 text-primary-foreground" />
@@ -164,10 +170,10 @@ const IndexEnhanced = () => {
             <p className="text-muted-foreground mb-4">
               Deploy your chatbot anywhere with our simple embed system. Choose from script, iframe, or React component options for seamless integration.
             </p>
-            <div className="flex items-center text-primary font-medium">
+            <a href="#" className="flex items-center text-primary font-medium hover:underline">
               <span>Learn more</span>
               <ArrowRight className="w-4 h-4 ml-2" />
-            </div>
+            </a>
           </Card>
         </div>
       </section>
@@ -178,7 +184,7 @@ const IndexEnhanced = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready-Made Templates</h2>
           <p className="text-lg md:text-xl text-muted-foreground px-4">Start with proven solutions for your industry</p>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
           {[
             { title: "E-commerce", icon: <DollarSign className="w-6 h-6" />, description: "Boost sales with product recommendations and order assistance" },
@@ -199,7 +205,8 @@ const IndexEnhanced = () => {
 
       {/* Reseller Program */}
       <section id="reseller" className="container mx-auto px-4 py-20">
-        <div className="max-w-4xl mx-auto">
+        {/* ... (Reseller section remains the same) ... */}
+         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
               <Users className="w-5 h-5 text-primary" />
@@ -210,7 +217,7 @@ const IndexEnhanced = () => {
               Join our reseller program and earn vested residual income. Earn 50% on your direct sales and 20% on sales from resellers you recruit. As customers continue their subscriptions, you continue earning commissions.
             </p>
           </div>
-          
+
           <Card className="p-8 bg-gradient-to-br from-background to-primary/5 border-border/50 rounded-xl">
             <div className="flex flex-col md:flex-row items-center gap-8">
               <div className="md:w-2/3">
@@ -226,6 +233,7 @@ const IndexEnhanced = () => {
                     </div>
                   </div>
                   <div className="flex items-start">
+                    {/* Assuming teal color for checkmarks */}
                     <div className="bg-teal-500 rounded-full p-2 mt-1 mr-4">
                       <CheckCircle2 className="w-5 h-5 text-white" />
                     </div>
@@ -235,7 +243,7 @@ const IndexEnhanced = () => {
                     </div>
                   </div>
                   <div className="flex items-start">
-                    <div className="bg-teal-500 rounded-full p-2 mt-1 mr-4">
+                     <div className="bg-teal-500 rounded-full p-2 mt-1 mr-4">
                       <CheckCircle2 className="w-5 h-5 text-white" />
                     </div>
                     <div>
@@ -244,7 +252,7 @@ const IndexEnhanced = () => {
                     </div>
                   </div>
                   <div className="flex items-start">
-                    <div className="bg-teal-500 rounded-full p-2 mt-1 mr-4">
+                     <div className="bg-teal-500 rounded-full p-2 mt-1 mr-4">
                       <CheckCircle2 className="w-5 h-5 text-white" />
                     </div>
                     <div>
@@ -258,7 +266,10 @@ const IndexEnhanced = () => {
                 <p className="text-5xl md:text-6xl font-bold mb-3">50%</p>
                 <p className="text-xl mb-2">Recurring Commission</p>
                 <p className="text-primary-foreground/80 mb-6">On direct sales</p>
-                <Button className="w-full bg-white text-primary hover:bg-gray-100 py-6 text-lg font-bold">Join Program</Button>
+                {/* Ensure this link points to your reseller sign-up */}
+                <Button asChild className="w-full bg-white text-primary hover:bg-gray-100 py-6 text-lg font-bold">
+                  <a href="#">Join Program</a>
+                </Button>
               </div>
             </div>
           </Card>
@@ -266,12 +277,13 @@ const IndexEnhanced = () => {
       </section>
 
       {/* Use Cases */}
-      <section className="container mx-auto px-4 py-16">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Perfect for every business</h2>
+      <section id="use-cases" className="container mx-auto px-4 py-16">
+        {/* ... (Use Cases section remains the same) ... */}
+         <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Perfect for Every Business</h2>
           <p className="text-lg md:text-xl text-muted-foreground px-4">From startups to enterprises</p>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {[
             {
@@ -301,36 +313,37 @@ const IndexEnhanced = () => {
 
       {/* Pricing Section */}
       <section id="pricing" className="container mx-auto px-4 py-16">
+        {/* ... (Pricing section remains the same) ... */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Simple, Transparent Pricing</h2>
           <p className="text-lg md:text-xl text-muted-foreground px-4">Choose the plan that fits your needs. All plans include our core chatbot features with no hidden fees.</p>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {[
-            { 
-              name: "Starter", 
-              price: "$29", 
-              description: "Perfect for small businesses and individuals", 
+            {
+              name: "Starter",
+              price: "$29",
+              description: "Perfect for small businesses and individuals",
               features: ["1 Chatbot", "100 Conversations/month", "Basic Analytics", "Email Support"],
               popular: false
             },
-            { 
-              name: "Professional", 
-              price: "$99", 
-              description: "Ideal for growing businesses and teams", 
+            {
+              name: "Professional",
+              price: "$99",
+              description: "Ideal for growing businesses and teams",
               features: ["5 Chatbots", "1,000 Conversations/month", "Advanced Analytics", "Priority Support", "Custom Branding"],
               popular: true
             },
-            { 
-              name: "Business", 
-              price: "$299", 
-              description: "For large organizations with complex needs", 
+            {
+              name: "Business",
+              price: "$299",
+              description: "For large organizations with complex needs",
               features: ["Unlimited Chatbots", "10,000 Conversations/month", "Advanced Analytics & Reports", "24/7 Dedicated Support", "Team Collaboration", "API Access"],
               popular: false
             }
           ].map((plan, idx) => (
-            <Card key={idx} className={`p-8 border-border relative ${plan.popular ? "border-2 border-primary shadow-xl" : "border"} bg-gradient-to-br from-background to-primary/5 rounded-xl`}>
+            <Card key={idx} className={`p-8 border rounded-xl relative transition-all duration-300 ${plan.popular ? "border-2 border-primary shadow-xl scale-105" : "border-border hover:border-primary/50"} bg-gradient-to-br from-background to-primary/5`}>
               {plan.popular && (
                 <div className="absolute -top-3 right-4 bg-gradient-to-r from-primary to-primary-glow text-primary-foreground px-4 py-1 rounded-lg font-bold text-sm shadow-lg">
                   MOST POPULAR
@@ -347,13 +360,16 @@ const IndexEnhanced = () => {
                   </li>
                 ))}
               </ul>
-              <Button className={`w-full py-6 text-lg font-bold ${plan.popular ? "bg-gradient-to-r from-primary to-primary-glow hover:from-primary/90 hover:to-primary-glow/90 shadow-lg" : "border-2 border-primary bg-background hover:bg-primary hover:text-primary-foreground"}`}>
-                Get Started
+              {/* Point Button to /auth or signup page */}
+              <Button asChild className={`w-full py-6 text-lg font-bold ${plan.popular ? "bg-gradient-to-r from-primary to-primary-glow hover:from-primary/90 hover:to-primary-glow/90 shadow-lg" : "border-2 border-primary bg-background text-primary hover:bg-primary hover:text-primary-foreground"}`}>
+                 <Link to="/auth">Get Started</Link>
               </Button>
             </Card>
           ))}
         </div>
       </section>
+
+      {/* Suggestion: Add a Testimonials or Customer Logos section here */}
 
       {/* CTA Section */}
       <section className="container mx-auto px-4 py-16">
@@ -383,16 +399,18 @@ const IndexEnhanced = () => {
         <div className="container mx-auto px-4 py-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex items-center gap-2">
-              <img src="/buildmybot-logo.png" alt="BuildMyBot Logo" className="w-8 h-8 rounded-lg" />
+              {/* Updated Logo Path */}
+              <img src="/IMG_1486.jpeg" alt="BuildMyBot Logo" className="w-8 h-8 rounded-lg object-contain" />
               <span className="font-bold text-xl">BuildMyBot</span>
             </div>
             <p className="text-sm text-muted-foreground text-center">
               © 2025 BuildMyBot. All rights reserved.
             </p>
+            {/* Suggestion: Add links to Privacy Policy, Terms of Service */}
           </div>
         </div>
       </footer>
-      
+
       {/* Demo Bot */}
       <DemoBot />
     </div>

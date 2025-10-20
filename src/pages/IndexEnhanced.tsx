@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { MessageSquare, Zap, Brain, BarChart3, ArrowRight, CheckCircle2, Globe, Menu, X, Sparkles, Users, DollarSign, Rocket } from "lucide-react";
+import { MessageSquare, Zap, Brain, BarChart3, ArrowRight, CheckCircle2, Globe, Menu, X, Sparkles, Users, DollarSign, Rocket, Crown, Building, Headphones, ShoppingCart } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import DemoBot from "@/components/DemoBot";

@@ -18,7 +18,7 @@ import {
   Twitter, 
   Instagram, 
   Linkedin,  
-  Telegram, 
+  MessageCircle, 
   Slack, 
   Discord, 
   Code, 

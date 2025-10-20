@@ -214,10 +214,10 @@ const MultiChannelDeployment = () => {
     { type: 'social', name: 'Facebook Messenger', icon: Facebook, description: 'Connect Facebook page' },
     { type: 'social', name: 'Instagram DMs', icon: Instagram, description: 'Automate Instagram messages' },
     { type: 'social', name: 'Twitter DMs', icon: Twitter, description: 'Handle Twitter conversations' },
-    { type: 'messaging', name: 'WhatsApp Business', icon: Whatsapp, description: 'Business WhatsApp integration' },
-    { type: 'messaging', name: 'Telegram Bot', icon: Telegram, description: 'Create Telegram bot' },
+    { type: 'messaging', name: 'WhatsApp Business', icon: MessageCircle, description: 'Business WhatsApp integration' },
+    { type: 'messaging', name: 'Telegram Bot', icon: MessageCircle, description: 'Create Telegram bot' },
     { type: 'messaging', name: 'Slack Bot', icon: Slack, description: 'Internal team communication' },
-    { type: 'messaging', name: 'Discord Bot', icon: Discord, description: 'Community server bot' },
+    { type: 'messaging', name: 'Discord Bot', icon: MessageSquare, description: 'Community server bot' },
     { type: 'email', name: 'Email Auto-responder', icon: Mail, description: 'Automated email responses' },
     { type: 'voice', name: 'Phone IVR', icon: Phone, description: 'Voice call automation' },
     { type: 'api', name: 'Custom API', icon: Code, description: 'REST API integration' }

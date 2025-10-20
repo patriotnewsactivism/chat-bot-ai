@@ -3,11 +3,10 @@ import Stripe from 'stripe';
 import { db } from '../db';
 import { users, subscriptions, usage } from '@shared/schema';
 import { eq, and, gte, lte } from 'drizzle-orm';
-import { supabase } from '../integrations/supabase';
 
 const router = express.Router();
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2024-10-28.acacia',
+  apiVersion: '2025-09-30.clover',
 });
 
 // Webhook endpoint for Stripe events

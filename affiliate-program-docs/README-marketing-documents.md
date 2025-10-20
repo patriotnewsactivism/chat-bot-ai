@@ -123,8 +123,8 @@ These documents are regularly updated to reflect:
 ## Support
 
 For questions about these marketing documents:
-- **Email**: affiliates@buildmybot.com
-- **Phone**: 1-800-BUILD-BOT (1-800-284-5326)
+- **Email**: affiliates@buildmybot.app
+- **Website**: https://buildmybot.app
 - **Hours**: Monday-Friday, 9 AM - 6 PM EST
 
 ## Distribution Guidelines
@@ -151,4 +151,4 @@ For questions about these marketing documents:
 
 *Last updated: October 2025*
 *Version: 1.0*
-*Contact: affiliates@buildmybot.com*
+*Contact: affiliates@buildmybot.app*

@@ -268,7 +268,7 @@ const IndexEnhanced = () => {
                 <p className="text-primary-foreground/80 mb-6">On direct sales</p>
                 {/* Ensure this link points to your reseller sign-up */}
                 <Button asChild className="w-full bg-white text-primary hover:bg-gray-100 py-6 text-lg font-bold">
-                  <a href="https://app.getrewardful.com/signup">Join Program</a>
+                  <a href="https://buildmybot.app/affiliates">Join Program</a>
                 </Button>
               </div>
             </div>

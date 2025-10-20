@@ -17,8 +17,7 @@ import {
   Facebook, 
   Twitter, 
   Instagram, 
-  Linkedin, 
-  Whatsapp, 
+  Linkedin,  
   Telegram, 
   Slack, 
   Discord, 
@@ -140,17 +139,7 @@ const MultiChannelDeployment = () => {
         lastDeployed: '2024-01-14T15:45:00Z'
       },
       {
-        id: '3',
-        name: 'WhatsApp Business',
-        type: 'messaging',
-        icon: Whatsapp,
-        status: 'inactive',
-        config: {
-          phoneNumber: '+1234567890',
-          apiKey: '...',
-          webhookUrl: 'https://api.buildmybot.app/webhook/whatsapp'
-        },
-        metrics: {
+         metrics: {
           conversations: 0,
           users: 0,
           satisfaction: 0

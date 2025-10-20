@@ -7,7 +7,7 @@ import { eq, and, gte, lte } from 'drizzle-orm';
 const router = express.Router();
 const stripe = process.env.STRIPE_SECRET_KEY 
   ? new Stripe(process.env.STRIPE_SECRET_KEY, {
-      apiVersion: '2025-09-30.clover',
+      apiVersion: '2023-10-16',
     })
   : null;
 

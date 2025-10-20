@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuildMyBot - Build Your Bot, Your Way</title>
+    <meta name="description" content="Build intelligent AI chatbots without code. Empower your business with conversational AI that engages customers 24/7.">
+    <meta name="author" content="BuildMyBot">
+    
+    <meta property="og:title" content="BuildMyBot - AI Chatbot Platform">
+    <meta property="og:description" content="Build intelligent AI chatbots without code. No technical expertise required.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://buildmybot.app">
+    <meta property="og:image" content="https://buildmybot.app/og-image.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@buildmybotapp">
+    <meta name="twitter:title" content="BuildMyBot - Build Your Bot, Your Way">
+    <meta name="twitter:description" content="Build intelligent AI chatbots without code">
+    <meta name="twitter:image" content="https://buildmybot.app/og-image.png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: 'hsl(0, 0%, 100%)',
+                        foreground: 'hsl(222, 47%, 11%)',
+                        primary: {
+                            DEFAULT: 'hsl(217, 91%, 20%)',
+                            foreground: 'hsl(0, 0%, 100%)',
+                            glow: 'hsl(217, 91%, 30%)'
+                        },
+                        secondary: {
+                            DEFAULT: 'hsl(220, 13%, 95%)',
+                            foreground: 'hsl(222, 47%, 11%)'
+                        },
+                        accent: {
+                            DEFAULT: 'hsl(174, 100%, 29%)',
+                            foreground: 'hsl(0, 0%, 100%)'
+                        },
+                        muted: {
+                            DEFAULT: 'hsl(220, 13%, 95%)',
+                            foreground: 'hsl(220, 9%, 46%)'
+                        },
+                        destructive: {
+                            DEFAULT: 'hsl(0, 84%, 60%)',
+                            foreground: 'hsl(0, 0%, 100%)'
+                        },
+                        border: 'hsl(220, 13%, 91%)',
+                        input: 'hsl(220, 13%, 91%)',
+                        ring: 'hsl(217, 91%, 20%)'
+                    },
+                    borderRadius: {
+                        lg: '0.5rem',
+                        xl: '0.75rem'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: hsl(0, 0%, 100%);
+            color: hsl(222, 47%, 11%);
+        }
+        
+        .bg-primary {
+            background-color: hsl(217, 91%, 20%);
+        }
+        
+        .bg-primary-glow {
+            background-color: hsl(217, 91%, 30%);
+        }
+        
+        .animate-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .gradient-primary {
+            background: linear-gradient(135deg, hsl(217, 91%, 20%), hsl(217, 91%, 30%));
+        }
+        
+        .gradient-glow {
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.1), 0 10px 10px -5px rgba(59, 130, 246, 0.04);
+        }
+        
+        .pricing-card.popular {
+            transform: scale(1.05);
+        }
+        
+        @media (max-width: 768px) {
+            .pricing-card.popular {
+                transform: scale(1);
+            }
+        }
+    </style>
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body class="min-h-screen bg-background">
+    <!-- Navigation -->
+    <nav class="border-b border-border/40 backdrop-blur-sm bg-background/80 sticky top-0 z-50">
+        <div class="container mx-auto px-4 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <img src="buildmybot-logo.png" alt="BuildMyBot Logo" class="w-10 h-10 rounded-lg" />
+                <span class="font-bold text-xl text-foreground">BuildMyBot</span>
+            </div>
+            <div class="hidden md:flex items-center gap-6">
+                <a href="#features" class="text-foreground/80 hover:text-primary transition-colors">Features</a>
+                <a href="#templates" class="text-foreground/80 hover:text-primary transition-colors">Templates</a>
+                <a href="#pricing" class="text-foreground/80 hover:text-primary transition-colors">Pricing</a>
+                <a href="#reseller" class="text-foreground/80 hover:text-primary transition-colors">Reseller</a>
+                <a href="#" class="gradient-primary text-white px-4 py-2 rounded-md font-medium hover:opacity-90 transition-opacity">Get Started</a>
+            </div>
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-button" class="text-foreground p-2 rounded-lg hover:bg-primary/10">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden border-t border-border/20 bg-background/95 backdrop-blur">
+            <div class="container mx-auto px-4 py-4 flex flex-col gap-3">
+                <a href="#features" class="py-2 text-foreground/80 hover:text-primary transition-colors">Features</a>
+                <a href="#templates" class="py-2 text-foreground/80 hover:text-primary transition-colors">Templates</a>
+                <a href="#pricing" class="py-2 text-foreground/80 hover:text-primary transition-colors">Pricing</a>
+                <a href="#reseller" class="py-2 text-foreground/80 hover:text-primary transition-colors">Reseller</a>
+                <a href="#" class="gradient-primary text-white px-4 py-2 rounded-md font-medium text-center">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="container mx-auto px-4 pt-24 pb-40">
+        <div class="max-w-4xl mx-auto text-center space-y-10 animate-in">
+            <div class="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                </svg>
+                <span class="text-base font-medium text-primary">AI-Powered Customer Engagement</span>
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl font-bold leading-tight">
+                Build Your Bot,
+                <br />
+                <span class="bg-gradient-to-r from-primary via-primary-glow to-primary bg-clip-text text-transparent">
+                    Your Way
+                </span>
+            </h1>
+            
+            <p class="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto px-4">
+                Create powerful AI chatbots without coding. Perfect for businesses, creators, and resellers.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-6 pt-10">
+                <a href="#" class="gradient-primary text-white px-10 py-4 rounded-xl font-bold text-xl flex items-center hover:opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl">
+                    Start Free Trial
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 ml-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+                <a href="#" class="border-2 border-border bg-secondary text-secondary-foreground px-10 py-4 rounded-xl font-bold text-xl hover:bg-secondary/80 transition-colors">
+                    View Demo
+                </a>
+            </div>
+            
+            <div class="flex flex-wrap items-center justify-center gap-6 pt-10 text-base text-muted-foreground">
+                <div class="flex items-center gap-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    <span>No credit card required</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    <span>14-day free trial</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    <span>Deploy anywhere</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section id="features" class="container mx-auto px-4 py-20">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6">Powerful Features for Modern Businesses</h2>
+            <p class="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto px-4">
+                    Everything you need to create engaging, intelligent chatbots that drive results.
+                </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div class="feature-card border border-border/50 rounded-xl p-8 transition-all duration-300 bg-gradient-to-br from-background to-primary/5 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-2">
+                <div class="w-16 h-16 rounded-xl gradient-primary flex items-center justify-center mb-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold mb-3">AI-Powered Chat</h3>
+                <p class="text-muted-foreground mb-4">
+                    Leverage cutting-edge GPT-4o-mini to create intelligent chatbots that understand and respond to customer inquiries with remarkable accuracy.
+                </p>
+                <div class="flex items-center text-primary font-medium">
+                    <span>Learn more</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </div>
+            </div>
+            
+            <div class="feature-card border border-border/50 rounded-xl p-8 transition-all duration-300 bg-gradient-to-br from-background to-primary/5 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-2">
+                <div class="w-16 h-16 rounded-xl gradient-primary flex items-center justify-center mb-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold mb-3">No-Code Builder</h3>
+                <p class="text-muted-foreground mb-4">
+                    Create sophisticated chatbots with our intuitive drag-and-drop interface. No technical skills required - just your vision and our platform.
+                </p>
+                <div class="flex items-center text-primary font-medium">
+                    <span>Learn more</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </div>
+            </div>
+            
+            <div class="feature-card border border-border/50 rounded-xl p-8 transition-all duration-300 bg-gradient-to-br from-background to-primary/5 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-2">
+                <div class="w-16 h-16 rounded-xl gradient-primary flex items-center justify-center mb-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="20" x2="18" y2="10"></line>
+                        <line x1="12" y1="20" x2="12" y2="4"></line>
+                        <line x1="6" y1="20" x2="6" y2="14"></line>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Easy Embedding</h3>
+                <p class="text-muted-foreground mb-4">
+                    Deploy your chatbot anywhere with our simple embed system. Choose from script, iframe, or React component options for seamless integration.
+                </p>
+                <div class="flex items-center text-primary font-medium">
+                    <span>Learn more</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Templates Section -->
+    <section id="templates" class="container mx-auto px-4 py-20 bg-secondary/50">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6">Industry-Specific Templates</h2>
+            <p class="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto px-4">
+                    Get started quickly with templates designed for your business type.
+                </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            <div class="border border-border/50 rounded-xl p-6 transition-all duration-300 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1 bg-gradient-to-br from-background to-primary/5">
+                <div class="w-12 h-12 rounded-lg gradient-primary flex items-center justify-center mb-4 text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="1" x2="12" y2="23"></line>
+                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-bold mb-2">E-commerce</h3>
+                <p class="text-muted-foreground text-sm">Boost sales with product recommendations and order assistance</p>
+            </div>
+            
+            <div class="border border-border/50 rounded-xl p-6 transition-all duration-300 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1 bg-gradient-to-br from-background to-primary/5">
+                <div class="w-12 h-12 rounded-lg gradient-primary flex items-center justify-center mb-4 text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-bold mb-2">Customer Support</h3>
+                <p class="text-muted-foreground text-sm">Reduce support tickets with automated FAQ responses</p>
+            </div>
+            
+            <div class="border border-border/50 rounded-xl p-6 transition-all duration-300 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1 bg-gradient-to-br from-background to-primary/5">
+                <div class="w-12 h-12 rounded-lg gradient-primary flex items-center justify-center mb-4 text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-bold mb-2">Lead Generation</h3>
+                <p class="text-muted-foreground text-sm">Capture leads and schedule demos automatically</p>
+            </div>
+            
+            <div class="border border-border/50 rounded-xl p-6 transition-all duration-300 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1 bg-gradient-to-br from-background to-primary/5">
+                <div class="w-12 h-12 rounded-lg gradient-primary flex items-center justify-center mb-4 text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-bold mb-2">Knowledge Base</h3>
+                <p class="text-muted-foreground text-sm">Share information and answer questions intelligently</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reseller Program -->
+    <section id="reseller" class="container mx-auto px-4 py-20">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                    <span class="text-sm font-medium text-primary">Partner Program</span>
+                </div>
+                <h2 class="text-3xl md:text-5xl font-bold mb-6">50% Recurring Reseller Commissions</h2>
+                <p class="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto px-4">
+                    Join our reseller program and earn vested residual income. Earn 50% on your direct sales and 20% on sales from resellers you recruit. As customers continue their subscriptions, you continue earning commissions.
+                </p>
+            </div>
+            
+            <div class="border border-border/50 rounded-xl p-8 bg-gradient-to-br from-background to-primary/5">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="md:w-2/3">
+                        <h3 class="text-2xl font-bold mb-6">How It Works</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="flex items-start">
+                                <div class="bg-teal-500 rounded-full p-2 mt-1 mr-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-1">Sign Up</h4>
+                                    <p class="text-muted-foreground">Join our reseller program in minutes with no upfront costs</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-teal-500 rounded-full p-2 mt-1 mr-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-1">Promote</h4>
+                                    <p class="text-muted-foreground">Share your unique referral link with your audience</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-teal-500 rounded-full p-2 mt-1 mr-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-1">Earn</h4>
+                                    <p class="text-muted-foreground">Receive 50% commission on all referred subscriptions</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-teal-500 rounded-full p-2 mt-1 mr-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-1">Scale</h4>
+                                    <p class="text-muted-foreground">Recruit other resellers and earn 20% on their sales</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-1/3 gradient-primary rounded-xl p-8 text-white text-center w-full">
+                        <p class="text-5xl md:text-6xl font-bold mb-3">50%</p>
+                        <p class="text-xl mb-2">Recurring Commission</p>
+                        <p class="text-primary-foreground/80 mb-6">On direct sales</p>
+                        <a href="#" class="bg-white text-primary hover:bg-gray-100 font-bold py-3 px-6 rounded-lg transition duration-300 block">Join Program</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases -->
+    <section class="container mx-auto px-4 py-16">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6">Use Cases</h2>
+            <p class="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto px-4">From startups to enterprises</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            <div class="border border-border/50 rounded-xl p-6 hover:border-primary/50 transition-all duration-300 hover:shadow-lg bg-gradient-to-br from-background to-primary/5">
+                <h3 class="text-lg font-bold mb-2">E-commerce Support</h3>
+                <p class="text-muted-foreground">Answer product questions, help with orders, and boost sales 24/7</p>
+            </div>
+            <div class="border border-border/50 rounded-xl p-6 hover:border-primary/50 transition-all duration-300 hover:shadow-lg bg-gradient-to-br from-background to-primary/5">
+                <h3 class="text-lg font-bold mb-2">Lead Generation</h3>
+                <p class="text-muted-foreground">Qualify leads, schedule demos, and capture customer information</p>
+            </div>
+            <div class="border border-border/50 rounded-xl p-6 hover:border-primary/50 transition-all duration-300 hover:shadow-lg bg-gradient-to-br from-background to-primary/5">
+                <h3 class="text-lg font-bold mb-2">Customer Service</h3>
+                <p class="text-muted-foreground">Reduce support tickets by answering common questions automatically</p>
+            </div>
+            <div class="border border-border/50 rounded-xl p-6 hover:border-primary/50 transition-all duration-300 hover:shadow-lg bg-gradient-to-br from-background to-primary/5">
+                <h3 class="text-lg font-bold mb-2">Content Engagement</h3>
+                <p class="text-muted-foreground">Keep visitors engaged on your blog or social media channels</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="container mx-auto px-4 py-16">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Simple, Transparent Pricing</h2>
+            <p class="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">Choose the plan that fits your needs. All plans include our core chatbot features with no hidden fees.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div class="pricing-card border border-border rounded-xl p-8 transition-all duration-300 bg-gradient-to-br from-background to-primary/5">
+                <h3 class="text-2xl font-bold mb-3">Starter</h3>
+                <p class="text-5xl font-bold mb-3 bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">$29<span class="text-xl font-normal text-muted-foreground">/month</span></p>
+                <p class="text-muted-foreground mb-6">Perfect for small businesses and individuals</p>
+                <ul class="space-y-4 mb-8">
+                    <li class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary mr-3 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>1 Chatbot</span>
+                    </li>
+                    <li class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary mr-3 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>100 Conversations/month</span>
+                    </li>
+                    <li class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary mr-3 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>Basic Analytics</span>
+                    </li>
+                    <li class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary mr-3 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>Email Support</span>
+                    </li>
+                </ul>
+                <a href="#" class="block text-center py-4 px-6 border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-lg font-bold text-lg transition duration-300">
+                    Get Started
+                </a>
+            </div>
+            
+            <div class="pricing-card popular border-2 border-primary rounded-xl p-8 relative shadow-xl transition-all duration-300 bg-gradient-to-br from-background to-primary/5">
+                <div class="absolute -top-3 right-4 gradient-primary text-primary-foreground px-4 py-1 rounded-lg font-bold text-sm shadow-lg">
+                    MOST POPULAR
+                </div>
+                <h3 class="text-2xl font-bold mb-3">Professional</h3>
+                <p class="text-5xl font-bold mb-3 bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">$99<span class="text-xl font-normal text-muted-foreground">/month</span></p>
+                <p class="text-muted-foreground mb-6">Ideal for growing businesses and teams</p>
+                <ul class="space-y-4 mb-8">
+                    <li class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary mr-3 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>5 Chatbots</span>
+                    </li>
+                    <li class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary mr-3 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>1,000 Conversations/month</span>
+                    </li>
+                    <li class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary mr-3 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>Advanced Analytics</span>
+                    </li>
+                    <li class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary mr-3 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>Priority Support</span>
+                    </li>
+                    <li class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary mr-3 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>Custom Branding</span>
+                    </li>
+                </ul>
+                <a href="#" class="block text-center py-4 px-6 gradient-primary hover:opacity-90 text-white rounded-lg font-bold text-lg transition duration-300 shadow-lg">
+                    Get Started
+                </a>
+            </div>
+            
+            <div class="pricing-card border border-border rounded-xl p-8 transition-all duration-300 bg-gradient-to-br from-background to-primary/5">
+                <h3 class="text-2xl font-bold mb-3">Business</h3>
+                <p class="text-5xl font-bold mb-3 bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">$299<span class="text-xl font-normal text-muted-foreground">/month</span></p>
+                <p class="text-muted-foreground mb-6">For large organizations with complex needs</p>
+                <ul class="space-y-4 mb-8">
+                    <li class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary mr-3 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>Unlimited Chatbots</span>
+                    </li>
+                    <li class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary mr-3 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>10,000 Conversations/month</span>
+                    </li>
+                    <li class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary mr-3 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>Advanced Analytics & Reports</span>
+                    </li>
+                    <li class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary mr-3 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>24/7 Dedicated Support</span>
+                    </li>
+                    <li class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary mr-3 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>Team Collaboration</span>
+                    </li>
+                    <li class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary mr-3 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>API Access</span>
+                    </li>
+                </ul>
+                <a href="#" class="block text-center py-4 px-6 border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-lg font-bold text-lg transition duration-300">
+                    Get Started
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="container mx-auto px-4 py-16">
+        <div class="gradient-primary rounded-2xl p-8 md:p-16 text-center text-white shadow-2xl">
+            <div class="max-w-3xl mx-auto">
+                <div class="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center mx-auto mb-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-primary-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"></path>
+                        <path d="M12 12v9"></path>
+                        <path d="m8 17 4 4 4-4"></path>
+                    </svg>
+                </div>
+                <h2 class="text-3xl md:text-5xl font-bold mb-6">
+                    Ready to Build Your Bot?
+                </h2>
+                <p class="text-lg md:text-xl mb-8 px-4 max-w-2xl mx-auto">
+                    Join thousands of businesses and creators who are revolutionizing customer engagement with BuildMyBot.
+                </p>
+                <a href="#" class="bg-white text-primary hover:bg-gray-100 font-bold py-4 px-10 rounded-xl text-xl flex items-center justify-center mx-auto w-fit transition-colors shadow-lg">
+                    Start Free Trial
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 ml-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-border/40 mt-16">
+        <div class="container mx-auto px-4 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="flex items-center gap-2">
+                    <img src="buildmybot-logo.png" alt="BuildMyBot Logo" class="w-8 h-8 rounded-lg" />
+                    <span class="font-bold text-xl text-foreground">BuildMyBot</span>
+                </div>
+                <p class="text-sm text-muted-foreground text-center">
+                    © 2025 BuildMyBot. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>

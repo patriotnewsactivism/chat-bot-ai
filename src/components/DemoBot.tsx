@@ -120,7 +120,7 @@ const DemoBot = () => {
       {!isOpen && (
         <Button
           onClick={() => setIsOpen(true)}
-          className="h-14 w-14 rounded-full shadow-lg gradient-primary hover:scale-110 transition-transform"
+          className="h-14 w-14 rounded-full shadow-lg bg-primary hover:scale-110 transition-transform"
         >
           <MessageSquare className="w-6 h-6 text-white" />
         </Button>
@@ -130,7 +130,7 @@ const DemoBot = () => {
       {isOpen && (
         <Card className="w-[90vw] sm:w-96 h-[500px] flex flex-col shadow-2xl">
           {/* Header */}
-          <div className="gradient-primary p-4 rounded-t-lg flex items-center justify-between">
+          <div className="bg-primary p-4 rounded-t-lg flex items-center justify-between">
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
                 <MessageSquare className="w-5 h-5 text-white" />
@@ -161,7 +161,7 @@ const DemoBot = () => {
                   className={`max-w-[80%] rounded-lg p-3 ${
                     message.isBot
                       ? "bg-white border border-border"
-                      : "gradient-primary text-white"
+                      : "bg-primary text-white"
                   }`}
                 >
                   <p className={`text-sm ${message.isBot ? "text-foreground" : "text-white"}`}>
@@ -198,7 +198,7 @@ const DemoBot = () => {
               <Button
                 onClick={handleSendMessage}
                 disabled={!inputValue.trim()}
-                className="gradient-primary"
+                className="bg-primary"
               >
                 <Send className="w-4 h-4" />
               </Button>

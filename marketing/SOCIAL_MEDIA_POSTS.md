@@ -1,4 +1,4 @@
-# ChatForge Social Media Marketing Posts
+# BuildMyBot Social Media Marketing Posts
 
 ## Instagram Posts
 
@@ -6,7 +6,7 @@
 **Image:** Dashboard screenshot with "⚡ 2 Minutes Setup" badge
 **Caption:**
 ```
-🚀 Introducing ChatForge - AI Chatbots in 2 Minutes!
+🚀 Introducing BuildMyBot - AI Chatbots in 2 Minutes!
 
 No coding. No complexity. Just results.
 
@@ -24,8 +24,8 @@ Try it FREE → Link in bio
 **Image:** Split screen - before/after website
 **Caption:**
 ```
-Before ChatForge: ❌ Lost customers
-After ChatForge: ✅ 24/7 support
+Before BuildMyBot: ❌ Lost customers
+After BuildMyBot: ✅ 24/7 support
 
 Deploy in 2 minutes:
 1. Choose template 🤖
@@ -44,7 +44,7 @@ Get started → Link in bio
 ```
 "150 conversations in first 24 hours!" 📊
 
-ChatForge users are seeing:
+BuildMyBot users are seeing:
 • Higher conversion rates
 • Happier customers
 • More time saved
@@ -58,7 +58,7 @@ Join them → Link in bio
 **Image:** Grid showing 4 templates
 **Caption:**
 ```
-Choose your perfect ChatForge template:
+Choose your perfect BuildMyBot template:
 
 🛒 E-commerce Assistant
 💬 Customer Support  
@@ -74,7 +74,7 @@ Each optimized for your industry!
 **Image:** Phone showing chat widget
 **Caption:**
 ```
-📱 ChatForge works perfectly on mobile!
+📱 BuildMyBot works perfectly on mobile!
 
 • Touch-friendly buttons
 • Responsive design
@@ -92,7 +92,7 @@ Mobile-first, not mobile-afterthought!
 ```
 Tired of losing customers because you can't answer questions 24/7?
 
-I built ChatForge - deploy AI chatbots in 2 minutes!
+I built BuildMyBot - deploy AI chatbots in 2 minutes!
 
 🧵 Here's how it works:
 
@@ -140,14 +140,14 @@ First 50 users get:
 ✅ Priority support
 ✅ Lifetime pricing
 
-Try ChatForge → [link]
+Try BuildMyBot → [link]
 ```
 
 ## LinkedIn Posts
 
 ### Post 1: Professional Launch
 ```
-🚀 Just launched ChatForge - AI chatbots anyone can deploy in 2 minutes
+🚀 Just launched BuildMyBot - AI chatbots anyone can deploy in 2 minutes
 
 After seeing businesses struggle with expensive, complex chatbot solutions, I built something different:
 
@@ -174,7 +174,7 @@ Interested in trying it? Comment "chatbot" and I'll send you access.
 
 ### Post 2: Behind the Scenes
 ```
-Building ChatForge taught me 3 things about AI chatbots:
+Building BuildMyBot taught me 3 things about AI chatbots:
 
 1. Setup shouldn't take weeks
 Most platforms require developers and complex integrations. We built copy/paste deployment.
@@ -205,7 +205,7 @@ Tired of:
 ❌ High support costs?
 ❌ Complex chatbot setups?
 
-I built ChatForge to solve these problems:
+I built BuildMyBot to solve these problems:
 
 ✅ Deploy in 2 minutes (no coding)
 ✅ Answer questions 24/7 automatically
@@ -289,8 +289,8 @@ Your success story starts here: [link]
 ### Hashtag Strategy:
 - Use 5-10 relevant hashtags per post
 - Mix popular and niche hashtags
-- Create branded hashtag: #ChatForge
+- Create branded hashtag: #BuildMyBot
 - Research competitor hashtags
 - Test different combinations
 
-Ready to launch ChatForge on social media! 📱
+Ready to launch BuildMyBot on social media! 📱

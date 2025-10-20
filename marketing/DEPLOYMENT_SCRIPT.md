@@ -1,8 +1,8 @@
 #!/bin/bash
-# ChatForge Marketing Materials Deployment Script
+# BuildMyBot Marketing Materials Deployment Script
 # Run this to automatically create all marketing assets and generate a pull request
 
-echo "🚀 ChatForge Marketing Materials Deployment"
+echo "🚀 BuildMyBot Marketing Materials Deployment"
 echo "=========================================="
 
 # Check if we're in the right directory
@@ -36,7 +36,7 @@ echo ""
 
 # Create deployment summary
 cat > marketing/DEPLOYMENT_SUMMARY.md << 'EOF'
-# ChatForge Marketing Materials - Deployment Summary
+# BuildMyBot Marketing Materials - Deployment Summary
 
 ## 📦 What Was Created
 
@@ -51,7 +51,7 @@ cat > marketing/DEPLOYMENT_SUMMARY.md << 'EOF'
 - **Welcome Email:** Professional introduction with quick start guide
 - **Social Proof Email:** Results and testimonials from beta users
 - **Skool Exclusive Email:** Limited-time offer for community members
-- All emails feature ChatForge branding and clear CTAs
+- All emails feature BuildMyBot branding and clear CTAs
 
 ### 3. Social Media Posts (`SOCIAL_MEDIA_POSTS.md`)
 - **Instagram:** 5 posts with captions and hashtags
@@ -73,7 +73,7 @@ cat > marketing/DEPLOYMENT_SUMMARY.md << 'EOF'
 
 ## 🎯 Marketing Strategy Overview
 
-### Brand Identity: ChatForge
+### Brand Identity: BuildMyBot
 - Professional dark blue theme (#003d82)
 - Lightning bolt + robot icon (⚡🤖)
 - "Forge powerful conversations with AI" tagline
@@ -156,7 +156,7 @@ cat > marketing/DEPLOYMENT_SUMMARY.md << 'EOF'
 4. **Keep it concise** - Every second should add value
 5. **End with strong CTA** - Clear next step for viewers
 
-Ready to launch ChatForge to the world! 🚀
+Ready to launch BuildMyBot to the world! 🚀
 EOF
 
 echo "✅ Marketing materials deployment complete!"
@@ -164,10 +164,10 @@ echo ""
 echo "📋 Summary:"
 echo "• Created 5 comprehensive marketing assets"
 echo "• Included comparison charts, email templates, social posts, video script"
-echo "• All materials feature ChatForge branding"
+echo "• All materials feature BuildMyBot branding"
 echo "• Ready for immediate use in campaigns"
 echo ""
 echo "🎯 Next: Create visual assets using HTML mockups and record video!"
 echo ""
 echo "Run this script to automatically create a pull request:"
-echo "git add . && git commit -m 'feat: Add complete marketing materials for ChatForge launch' && git push origin feature/marketing-materials"
+echo "git add . && git commit -m 'feat: Add complete marketing materials for BuildMyBot launch' && git push origin feature/marketing-materials"

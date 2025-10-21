@@ -13,6 +13,7 @@ import Widget from "./pages/Widget";
 import Analytics from "./pages/Analytics";
 import NotFound from "./pages/NotFound";
 import WhiteLabelDashboard from "./pages/WhiteLabelDashboard";
+import AffiliatesPage from "./pages/AffiliatesPage";
 import VisualBotBuilder from "./components/VisualBotBuilder";
 import AITrainingCenter from "./components/AITrainingCenter";
 import MultiChannelDeployment from "./components/MultiChannelDeployment";
@@ -35,6 +36,7 @@ const App = () => (
           <Route path="/widget/:botId" element={<Widget />} />
           <Route path="/analytics" element={<Analytics />} />
           <Route path="/reseller" element={<WhiteLabelDashboard />} />
+          <Route path="/affiliates" element={<AffiliatesPage />} />
           <Route path="/builder" element={<VisualBotBuilder />} />
           <Route path="/training" element={<AITrainingCenter />} />
           <Route path="/deployment" element={<MultiChannelDeployment />} />
@@ -46,4 +48,4 @@ const App = () => (
   </QueryClientProvider>
 );
 
-export default App;// Force rebuild
+export default App;

@@ -107,14 +107,19 @@ const IndexEnhanced = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-6">
             <a href="#features" className="text-slate-600 hover:text-blue-600 transition-colors font-medium">Features</a>
             <a href="#templates" className="text-slate-600 hover:text-blue-600 transition-colors font-medium">Templates</a>
             <a href="#pricing" className="text-slate-600 hover:text-blue-600 transition-colors font-medium">Pricing</a>
-            <a href="#reseller" className="text-slate-600 hover:text-blue-600 transition-colors font-medium">Reseller</a>
+            <Link to="/affiliates" className="text-slate-600 hover:text-blue-600 transition-colors font-medium">Affiliates</Link>
+            <Link to="/auth">
+              <Button variant="ghost" className="text-slate-600 hover:text-blue-600 font-semibold">
+                Login
+              </Button>
+            </Link>
             <Link to="/auth">
               <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-                Get Started Free
+                Sign Up Free
               </Button>
             </Link>
           </div>
@@ -134,7 +139,7 @@ const IndexEnhanced = () => {
               <a href="#features" className="block py-3 text-slate-600 hover:text-blue-600 font-medium" onClick={() => setMobileMenuOpen(false)}>Features</a>
               <a href="#templates" className="block py-3 text-slate-600 hover:text-blue-600 font-medium" onClick={() => setMobileMenuOpen(false)}>Templates</a>
               <a href="#pricing" className="block py-3 text-slate-600 hover:text-blue-600 font-medium" onClick={() => setMobileMenuOpen(false)}>Pricing</a>
-              <a href="#reseller" className="block py-3 text-slate-600 hover:text-blue-600 font-medium" onClick={() => setMobileMenuOpen(false)}>Reseller</a>
+              <Link to="/affiliates" className="block py-3 text-slate-600 hover:text-blue-600 font-medium" onClick={() => setMobileMenuOpen(false)}>Affiliates</Link>
               <Link to="/auth" onClick={() => setMobileMenuOpen(false)}>
                 <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-xl font-semibold">
                   Get Started Free
@@ -361,7 +366,7 @@ const IndexEnhanced = () => {
                 <div className="text-2xl font-bold mb-2">Recurring Commission</div>
                 <div className="text-orange-100 mb-8">On direct sales</div>
                 <Button asChild className="w-full bg-white text-orange-600 hover:bg-gray-100 py-6 text-xl font-bold rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
-                  <a href="https://buildmybot.app/affiliates">
+                  <a href="/affiliates">
                     <Crown className="w-6 h-6 mr-3" />
                     Join Program
                   </a>

@@ -14,6 +14,7 @@ interface DemoBotProps {
 }
 
 export const DemoBot: React.FC<DemoBotProps> = ({ onUpgradeClick }) => {
+  const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
       text: `👋 Hi! I'm the BuildMyBot demo assistant. I can help you with:

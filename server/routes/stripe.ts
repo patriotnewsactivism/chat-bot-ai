@@ -1,17 +1,29 @@
 import express from 'express';
 import Stripe from 'stripe';
-import { db } from '../db';
-import { users, subscriptions, usage } from '@shared/schema';
+import { db } from '../db.js';
+import { users, subscriptions, usage } from '../../shared/schema.js';
 import { eq, and, gte, lte } from 'drizzle-orm';
-import { supabase } from '../integrations/supabase';
 
 const router = express.Router();
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2024-10-28.acacia',
-});
+const stripe = process.env.STRIPE_SECRET_KEY 
+  ? new Stripe(process.env.STRIPE_SECRET_KEY, {
+      apiVersion: '2023-10-16',
+    })
+  : null;
+
+const requireStripe = (req: express.Request, res: express.Response, next: express.NextFunction) => {
+  if (!stripe) {
+    return res.status(503).json({ error: 'Stripe is not configured. Please add STRIPE_SECRET_KEY to enable payment functionality.' });
+  }
+  next();
+};
 
 // Webhook endpoint for Stripe events
 router.post('/webhook', express.raw({ type: 'application/json' }), async (req, res) => {
+  if (!stripe) {
+    return res.status(503).json({ error: 'Stripe is not configured' });
+  }
+  
   const sig = req.headers['stripe-signature'] as string;
   const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET!;
 
@@ -68,7 +80,7 @@ router.post('/webhook', express.raw({ type: 'application/json' }), async (req, r
 });
 
 // Create checkout session
-router.post('/create-checkout-session', async (req, res) => {
+router.post('/create-checkout-session', requireStripe, async (req, res) => {
   try {
     const { priceId, userId, customerEmail, successUrl, cancelUrl, metadata = {} } = req.body;
 
@@ -133,7 +145,7 @@ router.post('/create-checkout-session', async (req, res) => {
 });
 
 // Create customer portal session
-router.post('/create-portal-session', async (req, res) => {
+router.post('/create-portal-session', requireStripe, async (req, res) => {
   try {
     const { customerId, returnUrl } = req.body;
 
@@ -192,7 +204,7 @@ router.get('/subscription-status', async (req, res) => {
 });
 
 // Cancel subscription
-router.post('/cancel-subscription', async (req, res) => {
+router.post('/cancel-subscription', requireStripe, async (req, res) => {
   try {
     const { subscriptionId } = req.body;
 
@@ -217,7 +229,7 @@ router.post('/cancel-subscription', async (req, res) => {
 });
 
 // Update subscription
-router.post('/update-subscription', async (req, res) => {
+router.post('/update-subscription', requireStripe, async (req, res) => {
   try {
     const { subscriptionId, priceId } = req.body;
 

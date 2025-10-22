@@ -1,24 +1,31 @@
 import express from 'express';
 import cors from 'cors';
+import cookieParser from 'cookie-parser';
 import { db } from './db.js';
 import { chatbots, conversations, messages, users } from '../shared/schema.js';
 import { eq, and, desc } from 'drizzle-orm';
 import stripeRouter from './routes/stripe.js';
+import authRouter from './routes/auth.js';
+import { authenticateToken, AuthRequest } from './middleware/auth.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(cors());
+app.use(express.json());
+app.use(cookieParser());
 
+// Auth routes (public)
+app.use('/api/auth', authRouter);
+
+// Stripe routes
 app.use('/api/stripe', stripeRouter);
 
-app.use(express.json());
-
-app.get('/api/chatbots', async (req, res) => {
+app.get('/api/chatbots', authenticateToken, async (req: AuthRequest, res) => {
   try {
-    const userId = req.query.userId as string;
+    const userId = req.userId;
     if (!userId) {
-      return res.status(400).json({ error: 'User ID is required' });
+      return res.status(401).json({ error: 'Authentication required' });
     }
 
     const bots = await db
@@ -53,12 +60,13 @@ app.get('/api/chatbots/:id', async (req, res) => {
   }
 });
 
-app.post('/api/chatbots', async (req, res) => {
+app.post('/api/chatbots', authenticateToken, async (req: AuthRequest, res) => {
   try {
-    const { userId, name, description, template, config, knowledgeBase, widgetSettings } = req.body;
+    const userId = req.userId;
+    const { name, description, template, config, knowledgeBase, widgetSettings } = req.body;
 
     if (!userId || !name) {
-      return res.status(400).json({ error: 'User ID and name are required' });
+      return res.status(400).json({ error: 'Name is required' });
     }
 
     const [newBot] = await db
@@ -82,10 +90,26 @@ app.post('/api/chatbots', async (req, res) => {
   }
 });
 
-app.put('/api/chatbots/:id', async (req, res) => {
+app.put('/api/chatbots/:id', authenticateToken, async (req: AuthRequest, res) => {
   try {
     const { id } = req.params;
+    const userId = req.userId;
     const { name, description, config, knowledgeBase, widgetSettings, status } = req.body;
+
+    // Verify ownership
+    const [existingBot] = await db
+      .select()
+      .from(chatbots)
+      .where(eq(chatbots.id, id))
+      .limit(1);
+
+    if (!existingBot) {
+      return res.status(404).json({ error: 'Chatbot not found' });
+    }
+
+    if (existingBot.userId !== userId) {
+      return res.status(403).json({ error: 'Unauthorized' });
+    }
 
     const [updatedBot] = await db
       .update(chatbots)
@@ -112,9 +136,25 @@ app.put('/api/chatbots/:id', async (req, res) => {
   }
 });
 
-app.delete('/api/chatbots/:id', async (req, res) => {
+app.delete('/api/chatbots/:id', authenticateToken, async (req: AuthRequest, res) => {
   try {
     const { id } = req.params;
+    const userId = req.userId;
+
+    // Verify ownership
+    const [existingBot] = await db
+      .select()
+      .from(chatbots)
+      .where(eq(chatbots.id, id))
+      .limit(1);
+
+    if (!existingBot) {
+      return res.status(404).json({ error: 'Chatbot not found' });
+    }
+
+    if (existingBot.userId !== userId) {
+      return res.status(403).json({ error: 'Unauthorized' });
+    }
 
     await db
       .delete(chatbots)

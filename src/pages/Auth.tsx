@@ -5,35 +5,23 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { MessageSquare } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
-import { supabase } from "@/integrations/supabase/client";
+import { apiClient } from "@/lib/api-client";
 import { useToast } from "@/components/ui/use-toast";
 
 const Auth = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { toast } = useToast();
 
   useEffect(() => {
     // Check if user is already logged in
-    const checkAuth = async () => {
-      const { data: { session } } = await supabase.auth.getSession();
-      if (session) {
-        navigate('/dashboard');
-      }
-    };
-    checkAuth();
-
-    // Listen for auth changes
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
-      if (session) {
-        navigate('/dashboard');
-      }
-    });
-
-    return () => subscription.unsubscribe();
+    if (apiClient.isAuthenticated()) {
+      navigate('/dashboard');
+    }
   }, [navigate]);
 
   const handleAuth = async (e: React.FormEvent) => {
@@ -42,31 +30,25 @@ const Auth = () => {
 
     try {
       if (isLogin) {
-        const { error } = await supabase.auth.signInWithPassword({
-          email,
-          password,
-        });
-        if (error) throw error;
+        await apiClient.login(email, password);
         toast({ title: "Welcome back!" });
+        navigate('/dashboard');
       } else {
-        const { error } = await supabase.auth.signUp({
+        await apiClient.register({
           email,
           password,
-          options: {
-            emailRedirectTo: `${window.location.origin}/dashboard`,
-          }
+          name: name || undefined,
         });
-        if (error) throw error;
         toast({ 
           title: "Success!",
-          description: "Account created. You can now sign in."
+          description: "Account created successfully. Welcome to BuildMyBot!"
         });
-        setIsLogin(true);
+        navigate('/dashboard');
       }
     } catch (error: any) {
       toast({
         title: "Error",
-        description: error.message,
+        description: error.message || "An error occurred",
         variant: "destructive"
       });
     } finally {
@@ -92,6 +74,19 @@ const Auth = () => {
         </div>
 
         <form onSubmit={handleAuth} className="space-y-4">
+          {!isLogin && (
+            <div className="space-y-2">
+              <Label htmlFor="name">Name (Optional)</Label>
+              <Input
+                id="name"
+                type="text"
+                placeholder="Your name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </div>
+          )}
+
           <div className="space-y-2">
             <Label htmlFor="email">Email</Label>
             <Input
@@ -115,6 +110,11 @@ const Auth = () => {
               required
               minLength={6}
             />
+            {!isLogin && (
+              <p className="text-xs text-muted-foreground">
+                Must be at least 6 characters
+              </p>
+            )}
           </div>
 
           <Button 

@@ -13,9 +13,11 @@ import Widget from "./pages/Widget";
 import Analytics from "./pages/Analytics";
 import NotFound from "./pages/NotFound";
 import WhiteLabelDashboard from "./pages/WhiteLabelDashboard";
+import AffiliateProgram from "./pages/AffiliateProgram";
 import VisualBotBuilder from "./components/VisualBotBuilder";
 import AITrainingCenter from "./components/AITrainingCenter";
 import MultiChannelDeployment from "./components/MultiChannelDeployment";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const queryClient = new QueryClient();
 
@@ -27,17 +29,21 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/bot/:id" element={<BotConfig />} />
-          <Route path="/templates" element={<Templates />} />
-          <Route path="/pricing" element={<Pricing />} />
           <Route path="/auth" element={<Auth />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/templates" element={<Templates />} />
           <Route path="/widget/:botId" element={<Widget />} />
-          <Route path="/analytics" element={<Analytics />} />
-          <Route path="/reseller" element={<WhiteLabelDashboard />} />
-          <Route path="/builder" element={<VisualBotBuilder />} />
-          <Route path="/training" element={<AITrainingCenter />} />
-          <Route path="/deployment" element={<MultiChannelDeployment />} />
+            <Route path="/affiliate-program" element={<AffiliateProgram />} />
+          
+          {/* Protected Routes */}
+          <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+          <Route path="/bot/:id" element={<ProtectedRoute><BotConfig /></ProtectedRoute>} />
+          <Route path="/analytics" element={<ProtectedRoute><Analytics /></ProtectedRoute>} />
+          <Route path="/reseller" element={<ProtectedRoute><WhiteLabelDashboard /></ProtectedRoute>} />
+          <Route path="/builder" element={<ProtectedRoute><VisualBotBuilder /></ProtectedRoute>} />
+          <Route path="/training" element={<ProtectedRoute><AITrainingCenter /></ProtectedRoute>} />
+          <Route path="/deployment" element={<ProtectedRoute><MultiChannelDeployment /></ProtectedRoute>} />
+          
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
@@ -46,4 +52,4 @@ const App = () => (
   </QueryClientProvider>
 );
 
-export default App;// Force rebuild
+export default App;

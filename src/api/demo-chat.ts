@@ -1,91 +1,72 @@
 import { Request, Response } from 'express';
 import OpenAI from 'openai';
 
+/**
+ * Server-side demo chat handler.
+ * - Validates input
+ * - Limits history length and sanitizes messages
+ * - Uses server-only OPENAI_API_KEY (DO NOT expose to client)
+ * - Model is configurable via OPENAI_MODEL env var
+ *
+ * Notes:
+ * - Deploy this on a server or as a serverless function (Vercel: set OPENAI_API_KEY as a Project Secret)
+ * - Add rate limiting / authentication in production
+ */
+
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-interface DemoChatRequest {
-  message: string;
-  system_prompt: string;
-  conversation_history: Array<{
-    role: 'user' | 'assistant';
-    content: string;
-  }>;
-}
+const DEFAULT_MODEL = process.env.OPENAI_MODEL || 'gpt-4o-mini';
+const MAX_HISTORY = 10;
+const MAX_TOKENS = 500;
 
 export const handleDemoChat = async (req: Request, res: Response) => {
   try {
-    const { message, system_prompt, conversation_history }: DemoChatRequest = req.body;
+    const body = req.body ?? {};
+    const { message, system_prompt, conversation_history } = body as {
+      message?: unknown;
+      system_prompt?: unknown;
+      conversation_history?: unknown;
+    };
 
-    if (!message || !system_prompt) {
-      return res.status(400).json({
-        error: 'Missing required fields: message and system_prompt'
-      });
+    if (!message || typeof message !== 'string' || !system_prompt || typeof system_prompt !== 'string') {
+      return res.status(400).json({ error: 'Missing or invalid required fields: message and system_prompt' });
     }
 
-    // Build messages for OpenAI API
+    // Normalize conversation history
+    const historyArray = Array.isArray(conversation_history) ? conversation_history : [];
+    const safeHistory = historyArray
+      .filter((m: any) =>
+        m &&
+        (m.role === 'user' || m.role === 'assistant') &&
+        typeof m.content === 'string'
+      )
+      .slice(-MAX_HISTORY);
+
     const messages = [
       { role: 'system', content: system_prompt },
-      ...conversation_history.slice(-10), // Last 10 messages for context
-      { role: 'user', content: message }
+      ...safeHistory,
+      { role: 'user', content: message },
     ];
 
+    // Call OpenAI (server-side only)
     const response = await openai.chat.completions.create({
-      model: 'gpt-4-turbo-preview',
-      messages: messages,
+      model: DEFAULT_MODEL,
+      messages,
       temperature: 0.7,
-      max_tokens: 500,
+      max_tokens: MAX_TOKENS,
       presence_penalty: 0.1,
-      frequency_penalty: 0.1
     });
 
-    const botResponse = response.choices[0].message.content;
+    // Extract text safely (SDK response shape may vary)
+    const reply = response?.choices?.[0]?.message?.content ?? 'No reply from model';
 
-    // Check if response suggests upgrade
-    const suggestsUpgrade = botResponse.toLowerCase().includes('upgrade') || 
-                           botResponse.toLowerCase().includes('limit') ||
-                           botResponse.toLowerCase().includes('professional');
-
-    return res.json({
-      response: botResponse,
-      suggests_upgrade: suggestsUpgrade,
-      model: 'gpt-4-turbo-preview',
-      tokens_used: response.usage?.total_tokens || 0
-    });
-
-  } catch (error) {
-    console.error('Demo chat API error:', error);
-    
-    return res.status(500).json({
-      error: 'Failed to generate response',
-      message: error instanceof Error ? error.message : 'Unknown error'
-    });
+    return res.status(200).json({ reply });
+  } catch (err) {
+    console.error('Demo chat error:', err);
+    return res.status(500).json({ error: 'Demo chat failed' });
   }
 };
 
-// Rate limiting middleware
-export const demoChatRateLimit = async (req: Request, res: Response, next: Function) => {
-  const clientIP = req.ip || req.connection.remoteAddress;
-  const key = `demo_chat:${clientIP}`;
-  
-  try {
-    // Check rate limit (10 requests per minute)
-    const current = await redisClient.get(key);
-    if (current && parseInt(current) > 10) {
-      return res.status(429).json({
-        error: 'Rate limit exceeded',
-        message: 'Please wait before sending another message'
-      });
-    }
-    
-    // Increment counter
-    await redisClient.incr(key);
-    await redisClient.expire(key, 60); // 1 minute TTL
-    
-    next();
-  } catch (error) {
-    console.error('Rate limiting error:', error);
-    next(); // Continue without rate limiting if Redis fails
-  }
-};
+export default handleDemoChat;

@@ -3,6 +3,8 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "framework": "vite",
+  "NODE_VERSION": "18",
+  "CI": "false",
  "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]
